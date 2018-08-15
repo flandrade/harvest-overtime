@@ -1,0 +1,31 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+.env
+
+# Thumbnails
+._*
+
+# Common
+.idea
+*.map
+
+# Vim
+.projections.json
+
+# VsCode
+.vscode
+
+# Logs
+logs
+*.log
+
+# Dependencies
+node_modules
+npm-debug.log
+
+# TypeScript files
+.tscache
+**/*.js
+!jest.config.js
