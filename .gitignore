@@ -4,6 +4,9 @@
 .LSOverride
 .env
 
+# Report
+report.csv
+
 # Thumbnails
 ._*
 
