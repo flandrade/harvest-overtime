@@ -30,5 +30,6 @@ npm-debug.log
 
 # TypeScript files
 .tscache
-**/*.js
+lib/*.js
+lib/*.d.ts
 !jest.config.js
