@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "description": "Track the overtime!",
   "main": "lib/index.js",
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm run compile",
+    "start": "node lib/reporter.js",
+    "test": "mocha --require ts-node/register test/**/*.test.ts"
   },
   "author": "Fernanda Andrade",
   "license": "MIT",
   "dependencies": {
     "csv": "^3.1.0",
+    "csv-parse": "^2.5.0",
     "ramda": "^0.25.0"
   },
   "devDependencies": {
