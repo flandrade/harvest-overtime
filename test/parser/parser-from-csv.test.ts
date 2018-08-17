@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 
-import parse from '../src/parser';
-import { Employee } from "../src/models"
+import parse from '../../src/parser/parser-from-csv';
+import { Employee } from "../../src/models"
 
-describe("Parser", () => {
+describe("Parser.ParserFromCsv", () => {
   describe("#date", () => {
     describe("when field is valid", () => {
       it("parses the value", () => {

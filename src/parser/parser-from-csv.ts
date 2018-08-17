@@ -1,6 +1,4 @@
-import * as R from "ramda";
-
-import { Employee } from "./models"
+import { Employee } from "../models"
 
 const parser = require("csv-parse/lib/sync");
 
@@ -15,7 +13,10 @@ interface ReportRawCsv {
 export default function parse(
   input: string
 ): Employee[] {
-  const csv: ReportRawCsv[] = parser(input, { columns: true });
+  const csv: ReportRawCsv[] = parser(input, {
+    columns: true,
+    trim: true
+  });
   return csv.map(l => toReport(l))
 }
 
@@ -23,7 +24,7 @@ function toReport(
   report: ReportRawCsv
 ): Employee {
   return {
-    date: R.trim(report.Date),
+    date: report.Date,
     employee: report["Employee?"] === "Yes",
     firstName: report["First Name"],
     hours: Number(report.Hours) || 0,

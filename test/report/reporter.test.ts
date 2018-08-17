@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 
-import check from '../src/checker';
-import { Employee, Report } from "../src/models"
+import report from '../../src/report/reporter';
+import { Employee, ReportEmployee } from "../../src/models"
 
-describe("Check", () => {
+describe("Report.Reporter", () => {
   describe("when there is an element", () => {
     describe("and is an employee", () => {
       it("returns the report", () => {
@@ -14,8 +14,10 @@ describe("Check", () => {
           hours: 5,
           lastName: "Austen"
         }];
-        const report: Report = check(employees)[0];
-        expect(report["Jane"][0]).to.have.property("2018-08-06", 5);
+        const result: ReportEmployee[] = report(employees);
+        expect(result[0]).to.have.property("employee", "Jane");
+        expect(result[0]).to.have.property("report");
+        expect(result[0]).to.have.property("timesheet");
       });
     });
 
@@ -28,8 +30,8 @@ describe("Check", () => {
           hours: 5,
           lastName: "Austen"
         }];
-        const report: Report[] = check(employees)
-        expect(report).to.be.empty;
+        const result: ReportEmployee[] = report(employees)
+        expect(result).to.be.empty;
       });
     });
   });
@@ -37,7 +39,7 @@ describe("Check", () => {
   describe("when there are several elements", () => {
     describe("and there are several employees", () => {
       describe("and there is a single entry for each one", () => {
-        it("returns the report", () => {
+        it("returns the reports", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
             employee: true,
@@ -51,14 +53,19 @@ describe("Check", () => {
             hours: 8,
             lastName: "Bronte"
           }];
-          const report: Report[] = check(employees);
-          expect(report[0]["Jane"][0]).to.have.property("2018-08-06", 5);
-          expect(report[1]["Emily"][0]).to.have.property("2018-08-07", 8);
+          const result: ReportEmployee[] = report(employees);
+          expect(result).to.have.lengthOf(2);
+          expect(result[0]).to.have.property("employee", "Jane");
+          expect(result[0]).to.have.property("report");
+          expect(result[0]).to.have.property("timesheet");
+          expect(result[1]).to.have.property("employee", "Emily");
+          expect(result[1]).to.have.property("report");
+          expect(result[1]).to.have.property("timesheet");
         });
       });
 
       describe("and there are several entries for each one", () => {
-        it("returns the report", () => {
+        it("returns the reports", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
             employee: true,
@@ -86,15 +93,20 @@ describe("Check", () => {
             lastName: "Bronte"
           }
         ];
-          const report: Report[] = check(employees);
-          expect(report[0]["Jane"][0]).to.have.property("2018-08-06", 7);
-          expect(report[1]["Emily"][0]).to.have.property("2018-08-07", 9);
+          const result: ReportEmployee[] = report(employees);
+          expect(result).to.have.lengthOf(2);
+          expect(result[0]).to.have.property("employee", "Jane");
+          expect(result[0]).to.have.property("report");
+          expect(result[0]).to.have.property("timesheet");
+          expect(result[1]).to.have.property("employee", "Emily");
+          expect(result[1]).to.have.property("report");
+          expect(result[1]).to.have.property("timesheet");
         });
       });
     });
 
     describe("and there are several employees and non-employee", () => {
-      it("returns the report without non-employees", () => {
+      it("returns the reports without non-employees", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
           employee: true,
@@ -108,9 +120,11 @@ describe("Check", () => {
           hours: 8,
           lastName: "Bronte"
         }];
-        const report: Report[] = check(employees);
-        expect(report[0]["Jane"][0]).to.have.property("2018-08-06", 5);
-        expect(report).lengthOf(1);
+        const result: ReportEmployee[] = report(employees);
+        expect(result).to.have.lengthOf(1);
+        expect(result[0]).to.have.property("employee", "Jane");
+        expect(result[0]).to.have.property("report");
+        expect(result[0]).to.have.property("timesheet");
       });
     });
 
@@ -129,8 +143,8 @@ describe("Check", () => {
           hours: 5,
           lastName: "Bronte"
         }];
-        const report: Report[] = check(employees);
-        expect(report).to.be.empty;
+        const result: ReportEmployee[] = report(employees);
+        expect(result).to.be.empty;
       });
     });
   });

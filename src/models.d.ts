@@ -6,6 +6,19 @@ export interface Employee {
   readonly lastName: string
 }
 
-export type Report = { [key: string]: ReportEmployee[] };
+export interface ReportEmployee {
+  employee: string;
+  report: Report;
+  timesheet: Timesheet[];
+}
 
-type ReportEmployee = { [key: string]: number };
+export interface Report {
+  weekdays: number,
+  weekends: number
+}
+
+export interface Timesheet {
+  date: string,
+  hours: number,
+  isWeekend: boolean
+}
