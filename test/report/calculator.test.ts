@@ -1,7 +1,7 @@
-import { expect } from 'chai';
+import { expect } from "chai";
 
-import { getTimesheet, getOvertime } from '../../src/report/calculator';
-import { Employee, Timesheet, Report } from "../../src/models"
+import { Employee, Report, Timesheet } from "../../src/models";
+import { getOvertime, getTimesheet } from "../../src/report/calculator";
 
 describe("Report.Calculator", () => {
   describe(".getTimesheet", () => {

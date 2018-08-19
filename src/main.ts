@@ -1,8 +1,8 @@
-import report from "./report/reporter";
-import parse from "./parser/parser-from-csv";
 import { read } from "./io";
+import parse from "./parser/parser-from-csv";
+import report from "./report/reporter";
 
-const filePath: string ="report.csv";
+const filePath: string = "report.csv";
 const fileArg: string = process.argv[2];
 
 export default function main(

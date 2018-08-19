@@ -1,7 +1,7 @@
 import * as R from "ramda";
 
-import { getTimesheet, getOvertime } from "./calculator";
-import { Employee, Timesheet, ReportEmployee} from "../models"
+import { Employee, ReportEmployee, Timesheet } from "../models";
+import { getOvertime, getTimesheet } from "./calculator";
 
 export default function report(
   employees: Employee[]
@@ -16,7 +16,7 @@ function getInformationByEmployee(
   firstName: string,
   employees: Employee[]
 ): ReportEmployee {
-  const employee: Employee[] = R.filter(n => n.firstName == firstName, employees);
+  const employee: Employee[] = R.filter(n => n.firstName === firstName, employees);
   const dates: string[] = R.uniq(R.map(n => n.date, employee));
   const timesheet: Timesheet[] = getTimesheets(employee, dates);
 
@@ -24,7 +24,7 @@ function getInformationByEmployee(
     employee: firstName,
     report: getOvertime(timesheet),
     timesheet
-  }
+  };
 }
 
 function getTimesheets(

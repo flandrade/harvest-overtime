@@ -1,7 +1,7 @@
-import { expect } from 'chai';
+import { expect } from "chai";
 
-import report from '../../src/report/reporter';
-import { Employee, ReportEmployee } from "../../src/models"
+import { Employee, ReportEmployee } from "../../src/models";
+import report from "../../src/report/reporter";
 
 describe("Report.Reporter", () => {
   describe("when there is an element", () => {

@@ -1,7 +1,7 @@
-import { expect } from 'chai';
+import { expect } from "chai";
 
-import parse from '../../src/parser/parser-from-csv';
-import { Employee } from "../../src/models"
+import { Employee } from "../../src/models";
+import parse from "../../src/parser/parser-from-csv";
 
 describe("Parser.ParserFromCsv", () => {
   describe("#date", () => {
@@ -9,7 +9,7 @@ describe("Parser.ParserFromCsv", () => {
       it("parses the value", () => {
         const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
         const parsed: Employee = parse(csv)[0];
-        expect(parsed).to.have.property("date","2018-08-06");
+        expect(parsed).to.have.property("date", "2018-08-06");
       });
     });
 
@@ -18,7 +18,7 @@ describe("Parser.ParserFromCsv", () => {
         it("parses the value", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,Persuasion,8`;
           const parsed: Employee = parse(csv)[0];
-          expect(parsed).to.have.property("date","Persuasion");
+          expect(parsed).to.have.property("date", "Persuasion");
         });
       });
 
@@ -75,7 +75,7 @@ describe("Parser.ParserFromCsv", () => {
       it("parses the value", () => {
         const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
         const parsed: Employee = parse(csv)[0];
-        expect(parsed).to.have.property("firstName","Jane");
+        expect(parsed).to.have.property("firstName", "Jane");
       });
     });
 
@@ -84,7 +84,7 @@ describe("Parser.ParserFromCsv", () => {
         it("parses the value", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Persuasion,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
-          expect(parsed).to.have.property("firstName","Persuasion");
+          expect(parsed).to.have.property("firstName", "Persuasion");
         });
       });
 
@@ -114,7 +114,7 @@ describe("Parser.ParserFromCsv", () => {
         it("parses to zero", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,Mmm`;
           const parsed: Employee = parse(csv)[0];
-          expect(parsed).to.have.property("hours", 0)
+          expect(parsed).to.have.property("hours", 0);
         });
       });
 
@@ -122,7 +122,7 @@ describe("Parser.ParserFromCsv", () => {
         it("parses to zero", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,`;
           const parsed: Employee = parse(csv)[0];
-          expect(parsed).to.have.property("hours", 0)
+          expect(parsed).to.have.property("hours", 0);
         });
       });
     });
@@ -133,7 +133,7 @@ describe("Parser.ParserFromCsv", () => {
       it("parses the value", () => {
         const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
         const parsed: Employee = parse(csv)[0];
-        expect(parsed).to.have.property("lastName","Austen");
+        expect(parsed).to.have.property("lastName", "Austen");
       });
     });
 
@@ -142,7 +142,7 @@ describe("Parser.ParserFromCsv", () => {
         it("parses the value", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Persuasion,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
-          expect(parsed).to.have.property("lastName","Persuasion");
+          expect(parsed).to.have.property("lastName", "Persuasion");
         });
       });
 

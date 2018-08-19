@@ -1,9 +1,9 @@
 export interface Employee {
-  readonly date: string,
-  readonly employee: boolean,
-  readonly firstName: string,
-  readonly hours: number,
-  readonly lastName: string
+  readonly date: string;
+  readonly employee: boolean;
+  readonly firstName: string;
+  readonly hours: number;
+  readonly lastName: string;
 }
 
 export interface ReportEmployee {
@@ -13,12 +13,12 @@ export interface ReportEmployee {
 }
 
 export interface Report {
-  weekdays: number,
-  weekends: number
+  weekdays: number;
+  weekends: number;
 }
 
 export interface Timesheet {
-  date: string,
-  hours: number,
-  isWeekend: boolean
+  date: string;
+  hours: number;
+  isWeekend: boolean;
 }
