@@ -29,8 +29,5 @@ logs
 node_modules
 npm-debug.log
 
-# TypeScript files
+# TypeScript and JS files
 .tscache
-lib/*.js
-lib/*d.ts
-!jest.config.js

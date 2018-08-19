@@ -1,7 +1,7 @@
 import { read, write } from "./io";
 import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
-import report from "./report/scrapper";
+import report from "./report/scraper";
 
 const INPUT_PATH: string = "report.csv";
 const OUPUT_PATH: string = "result.csv";

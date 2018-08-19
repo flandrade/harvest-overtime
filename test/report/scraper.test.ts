@@ -1,9 +1,9 @@
 import { expect } from "chai";
 
 import { Employee, ReportEmployee } from "../../src/models";
-import report from "../../src/report/scrapper";
+import report from "../../src/report/scraper";
 
-describe("Reporter.Scrapper", () => {
+describe("Reporter.Scraper", () => {
   describe("when there is an element", () => {
     describe("and is an employee", () => {
       it("returns the report", () => {

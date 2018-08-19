@@ -8,6 +8,7 @@
     "compile": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prestart": "npm run compile",
+    "pack-publish": "npm run compile && npm publish",
     "start": "node lib/main.js",
     "test": "mocha --require ts-node/register test/**/*.test.ts"
   },
