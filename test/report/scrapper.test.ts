@@ -10,12 +10,11 @@ describe("Reporter.Scrapper", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
           employee: true,
-          firstName: "Jane",
           hours: 5,
-          lastName: "Austen"
+          name: "Jane Austen"
         }];
         const result: ReportEmployee[] = report(employees);
-        expect(result[0]).to.have.property("employee", "Jane");
+        expect(result[0]).to.have.property("employee", "Jane Austen");
         expect(result[0]).to.have.property("report");
         expect(result[0]).to.have.property("timesheet");
       });
@@ -26,9 +25,8 @@ describe("Reporter.Scrapper", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
           employee: false,
-          firstName: "Jane",
           hours: 5,
-          lastName: "Austen"
+          name: "Jane Austen"
         }];
         const result: ReportEmployee[] = report(employees)
         expect(result).to.be.empty;
@@ -43,22 +41,20 @@ describe("Reporter.Scrapper", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
             employee: true,
-            firstName: "Jane",
             hours: 5,
-            lastName: "Austen"
+            name: "Jane Austen"
           }, {
             date: "2018-08-07",
             employee: true,
-            firstName: "Emily",
             hours: 8,
-            lastName: "Bronte"
+            name: "Emily Bronte"
           }];
           const result: ReportEmployee[] = report(employees);
           expect(result).to.have.lengthOf(2);
-          expect(result[0]).to.have.property("employee", "Jane");
+          expect(result[0]).to.have.property("employee", "Jane Austen");
           expect(result[0]).to.have.property("report");
           expect(result[0]).to.have.property("timesheet");
-          expect(result[1]).to.have.property("employee", "Emily");
+          expect(result[1]).to.have.property("employee", "Emily Bronte");
           expect(result[1]).to.have.property("report");
           expect(result[1]).to.have.property("timesheet");
         });
@@ -69,36 +65,32 @@ describe("Reporter.Scrapper", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
             employee: true,
-            firstName: "Jane",
             hours: 5,
-            lastName: "Austen"
+            name: "Jane Austen"
           }, {
             date: "2018-08-07",
             employee: true,
-            firstName: "Emily",
             hours: 8,
-            lastName: "Bronte"
+            name: "Emily Bronte"
           },
           {
             date: "2018-08-06",
             employee: true,
-            firstName: "Jane",
             hours: 2,
-            lastName: "Austen"
+            name: "Jane Austen"
           }, {
             date: "2018-08-07",
             employee: true,
-            firstName: "Emily",
             hours: 1,
-            lastName: "Bronte"
+            name: "Emily Bronte"
           }
         ];
           const result: ReportEmployee[] = report(employees);
           expect(result).to.have.lengthOf(2);
-          expect(result[0]).to.have.property("employee", "Jane");
+          expect(result[0]).to.have.property("employee", "Jane Austen");
           expect(result[0]).to.have.property("report");
           expect(result[0]).to.have.property("timesheet");
-          expect(result[1]).to.have.property("employee", "Emily");
+          expect(result[1]).to.have.property("employee", "Emily Bronte");
           expect(result[1]).to.have.property("report");
           expect(result[1]).to.have.property("timesheet");
         });
@@ -110,19 +102,17 @@ describe("Reporter.Scrapper", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
           employee: true,
-          firstName: "Jane",
           hours: 5,
-          lastName: "Austen"
+          name: "Jane Austen"
         }, {
           date: "2018-08-07",
           employee: false,
-          firstName: "Emily",
           hours: 8,
-          lastName: "Bronte"
+          name: "Emily Bronte"
         }];
         const result: ReportEmployee[] = report(employees);
         expect(result).to.have.lengthOf(1);
-        expect(result[0]).to.have.property("employee", "Jane");
+        expect(result[0]).to.have.property("employee", "Jane Austen");
         expect(result[0]).to.have.property("report");
         expect(result[0]).to.have.property("timesheet");
       });
@@ -133,15 +123,13 @@ describe("Reporter.Scrapper", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
           employee: false,
-          firstName: "Jane",
           hours: 5,
-          lastName: "Austen"
+          name: "Jane Austen"
         }, {
           date: "2018-08-07",
           employee: false,
-          firstName: "Emily",
           hours: 5,
-          lastName: "Bronte"
+          name: "Emily Bronte"
         }];
         const result: ReportEmployee[] = report(employees);
         expect(result).to.be.empty;

@@ -23,11 +23,11 @@ export default function parse(
 function fromReport(
   report: ReportRawCsv
 ): Employee {
+  const fullName: string = `${report["First Name"]} ${report["Last Name"]}`;
   return {
     date: report.Date,
     employee: report["Employee?"] === "Yes",
-    firstName: report["First Name"],
     hours: Number(report.Hours) || 0,
-    lastName: report["Last Name"]
+    name: fullName.trim()
   };
 }

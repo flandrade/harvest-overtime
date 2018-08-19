@@ -7,7 +7,7 @@ export default function report(
   employees: Employee[]
 ): ReportEmployee[] {
   const onlyEmployees: Employee[] = R.filter(n => n.employee, employees);
-  const employeeNames: string[] = R.uniq(R.map(n => n.firstName, onlyEmployees));
+  const employeeNames: string[] = R.uniq(R.map(n => n.name, onlyEmployees));
 
   return R.map(n => getInformationByEmployee(n, onlyEmployees), employeeNames);
 }
@@ -16,7 +16,7 @@ function getInformationByEmployee(
   firstName: string,
   employees: Employee[]
 ): ReportEmployee {
-  const employee: Employee[] = R.filter(n => n.firstName === firstName, employees);
+  const employee: Employee[] = R.filter(n => n.name === firstName, employees);
   const dates: string[] = R.uniq(R.map(n => n.date, employee));
   const timesheet: Timesheet[] = getTimesheets(employee, dates);
 
