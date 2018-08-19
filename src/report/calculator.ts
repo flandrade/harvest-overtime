@@ -24,6 +24,7 @@ export function getOvertime(
     weekends: getOvertimeByType(timesheet, true),
   };
 }
+
 function getOvertimeByType(
   timesheet: Timesheet[],
   isWeekend: boolean

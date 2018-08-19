@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { Employee, Report, Timesheet } from "../../src/models";
 import { getOvertime, getTimesheet } from "../../src/report/calculator";
 
-describe("Report.Calculator", () => {
+describe("Reporter.Calculator", () => {
   describe(".getTimesheet", () => {
     describe("when there is a date", () => {
       describe("and is a weekday", () => {

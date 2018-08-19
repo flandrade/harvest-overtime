@@ -17,10 +17,10 @@ export default function parse(
     columns: true,
     trim: true
   });
-  return csv.map(l => toReport(l));
+  return csv.map(l => fromReport(l));
 }
 
-function toReport(
+function fromReport(
   report: ReportRawCsv
 ): Employee {
   return {
