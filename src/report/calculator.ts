@@ -19,18 +19,23 @@ export function getTimesheet(
 export function getOvertime(
   timesheet: Timesheet[]
 ): Report {
-  const calculate = (predicate: boolean, t: Timesheet) => predicate ? t.hours : 0;
-  const normalHours: number = timesheet.length * 8;
-  const weekdaysTotal: number = R.sum(
-    R.map(n => calculate(!n.isWeekend, n), timesheet)
-  );
-  const weekdays: number = weekdaysTotal > 0 ? weekdaysTotal - normalHours : 0;
-  const weekends: number = R.sum(
-    R.map(n => calculate(n.isWeekend, n), timesheet)
-  );
-
-  return {
-    weekdays,
-    weekends
+  const x = {
+    weekdays: getOvertimeByType(timesheet, false),
+    weekends: getOvertimeByType(timesheet, true),
   }
+  return x;
+}
+function getOvertimeByType(
+  timesheet: Timesheet[],
+  isWeekend: boolean
+): number {
+  const hourListByDay: number[] = R.pipe<Timesheet[], Timesheet[], number[]>(
+    R.filter<Timesheet>(n => n.isWeekend == isWeekend),
+    R.map<Timesheet, number>(n => n.hours)
+  )(timesheet);
+  const totalDays: number = hourListByDay.length;
+  const normalHours: number = isWeekend ? 0: totalDays * 8;
+  const totalHours: number = R.sum(hourListByDay);
+
+  return R.sum(hourListByDay) - normalHours;
 }
