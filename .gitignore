@@ -5,8 +5,8 @@
 .env
 
 # Report
+harvest.csv
 report.csv
-result.csv
 
 # Thumbnails
 ._*

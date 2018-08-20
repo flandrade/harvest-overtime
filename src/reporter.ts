@@ -14,12 +14,14 @@ export default function reporter(
   output: string = fileOutput || OUPUT_PATH
 ): void {
   console.log("Input file is", input);
-  console.log("Output file is", output);
   read(input)
     .then(parseFromReport)
     .then(report)
     .then(parseToReport)
     .then(write(output))
+    .then(() =>
+      console.log("Done. Output file is", output)
+    )
     .catch(error =>
       console.error("There was an issue", error.message)
     );

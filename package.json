@@ -4,6 +4,9 @@
   "description": "Track the overtime!",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "bin": {
+    "harvest-overtime": "./lib/main.js"
+  },
   "scripts": {
     "compile": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
