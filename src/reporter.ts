@@ -3,8 +3,8 @@ import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
 import report from "./report/scraper";
 
-const INPUT_PATH: string = "report.csv";
-const OUPUT_PATH: string = "result.csv";
+const INPUT_PATH: string = "harvest.csv";
+const OUPUT_PATH: string = "report.csv";
 
 const fileInput: string = process.argv[2];
 const fileOutput: string = process.argv[3];
