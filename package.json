@@ -2,6 +2,15 @@
   "name": "harvest-overtime",
   "version": "1.0.0",
   "description": "Track the overtime!",
+  "keywords": [
+    "harvest",
+    "overtime",
+    "report",
+    "csv",
+    "export",
+    "convert",
+    "parse"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {

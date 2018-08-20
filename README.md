@@ -52,7 +52,15 @@ use the following:
 harvest-overtime harvest_time_report_from2018-08-06to2018-08-12.csv report.csv
 ```
 
-The Harvest's report includes the following entries:
+The overtime report (`report.csv`) is:
+
+|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+|--------------|----------|----------|------------|------------|------------|
+| Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 1        | 1        | 7          | 10         | 1          |
+
+The Harvest's report includes the following data entries. Please note that
+this is an extract from the CSV file.
 
 |Employee? | First Name | Last Name | Date       | Hours |
 |----------|------------|-----------|------------|-------|
@@ -68,10 +76,3 @@ The Harvest's report includes the following entries:
 | Yes      | Emily      | Bronte    | 2018-08-07 | 8     |
 | Yes      | Emily      | Bronte    | 2018-08-07 | 2     |
 | Yes      | Emily      | Bronte    | 2018-08-11 | 1     |
-
-The overtime report (`report.csv`) is:
-
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
-| Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
-| Emily Bronte | 1        | 1        | 7          | 10         | 1          |
