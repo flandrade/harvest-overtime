@@ -12,9 +12,8 @@ describe("Reporter.Calculator", () => {
           const employees: Employee[] = [{
             date,
             employee: true,
-            firstName: "Jane",
             hours: 5,
-            lastName: "Austen"
+            name: "Jane Austen"
           }];
           const result: Timesheet = getTimesheet(date, employees);
           expect(result).to.have.property("date", date);
@@ -29,9 +28,8 @@ describe("Reporter.Calculator", () => {
           const employees: Employee[] = [{
             date,
             employee: false,
-            firstName: "Jane",
             hours: 5,
-            lastName: "Austen"
+            name: "Jane Austen"
           }];
           const result: Timesheet = getTimesheet(date, employees);
           expect(result).to.have.property("date", date);
