@@ -1,5 +1,6 @@
 # harvest-overtime
 
+[![npm version](https://badge.fury.io/js/harvest-overtime.svg)](https://badge.fury.io/js/harvest-overtime)
 [![Build Status](https://travis-ci.org/flandrade/harvest-overtime.svg?branch=master)](https://travis-ci.org/flandrade/harvest-overtime)
 
 Calculates employee's overtime with Harvest's CSV reports.
