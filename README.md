@@ -77,3 +77,6 @@ this is an extract from the CSV file.
 | Yes      | Emily      | Bronte    | 2018-08-07 | 8     |
 | Yes      | Emily      | Bronte    | 2018-08-07 | 2     |
 | Yes      | Emily      | Bronte    | 2018-08-11 | 1     |
+
+## License
+MIT
