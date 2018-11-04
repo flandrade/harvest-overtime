@@ -17,10 +17,10 @@ export default function parse(
     columns: true,
     trim: true
   });
-  return csv.map(l => fromReport(l));
+  return csv.map(l => decorateReport(l));
 }
 
-function fromReport(
+function decorateReport(
   report: ReportRawCsv
 ): Employee {
   const fullName: string = `${report["First Name"]} ${report["Last Name"]}`;

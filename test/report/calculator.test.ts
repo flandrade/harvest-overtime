@@ -5,8 +5,8 @@ import { getOvertime, getTimesheet } from "../../src/report/calculator";
 
 describe("Reporter.Calculator", () => {
   describe(".getTimesheet", () => {
-    describe("when there is a date", () => {
-      describe("and is a weekday", () => {
+    context("when there is a date", () => {
+      context("and is a weekday", () => {
         it("returns the timesheet", () => {
           const date: string = "2018-08-06";
           const employees: Employee[] = [{
@@ -22,7 +22,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and is a weekend", () => {
+      context("and is a weekend", () => {
         it("returns the timesheet", () => {
           const date: string = "2018-08-11";
           const employees: Employee[] = [{
@@ -41,8 +41,8 @@ describe("Reporter.Calculator", () => {
   });
 
   describe(".getOvertime", () => {
-    describe("when all dates are weedays", () => {
-      describe("and there is overtime", () => {
+    context("when all dates are weedays", () => {
+      context("and there is overtime", () => {
         it("returns the overtime", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-06",
@@ -59,7 +59,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and there is no overtime", () => {
+      context("and there is no overtime", () => {
         it("returns zero", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-06",
@@ -76,7 +76,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and there are less hours", () => {
+      context("and there are less hours", () => {
         it("returns a negative overtime", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-06",
@@ -94,8 +94,8 @@ describe("Reporter.Calculator", () => {
       });
     });
 
-    describe("when all dates are weekends", () => {
-      describe("and there is overtime", () => {
+    context("when all dates are weekends", () => {
+      context("and there is overtime", () => {
         it("returns the overtime", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-11",
@@ -112,7 +112,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and there is no overtime", () => {
+      context("and there is no overtime", () => {
         it("returns zero", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-11",
@@ -130,7 +130,7 @@ describe("Reporter.Calculator", () => {
       });
     });
 
-    describe("when dates are weedays and weekends", () => {
+    context("when dates are weedays and weekends", () => {
       describe("and there is overtime", () => {
         it("returns the overtime", () => {
           const timesheet: Timesheet[] = [{
@@ -148,7 +148,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and there is no overtime", () => {
+      context("and there is no overtime", () => {
         it("returns zero", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-06",
@@ -165,7 +165,7 @@ describe("Reporter.Calculator", () => {
         });
       });
 
-      describe("and there are less hours", () => {
+      context("and there are less hours", () => {
         it("returns a negative overtime", () => {
           const timesheet: Timesheet[] = [{
             date: "2018-08-06",

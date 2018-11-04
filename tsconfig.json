@@ -4,7 +4,7 @@
     "module": "commonjs",
     "outDir": "lib",
     "strict": true,
-    "target": "ES2015"
+    "target": "ES2018"
   },
   "include": [
     "src/**/*"

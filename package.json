@@ -1,6 +1,6 @@
 {
   "name": "harvest-overtime",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Track the overtime!",
   "keywords": [
     "harvest",
@@ -11,27 +11,31 @@
     "convert",
     "parse"
   ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/harvest-overtime.js",
+  "types": "lib/harvest-overtime.d.ts",
   "bin": {
-    "harvest-overtime": "./lib/main.js"
+    "harvest-overtime": "./lib/harvest-overtime.js"
   },
   "scripts": {
     "compile": "tsc",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "prestart": "npm run compile",
     "pack-publish": "npm run compile && npm publish",
-    "start": "node lib/main.js",
+    "start": "node lib/harvest-overtime.js",
     "test": "mocha --require ts-node/register test/**/*.test.ts"
   },
   "author": "Fernanda Andrade",
   "license": "MIT",
   "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
     "csv": "^3.1.0",
     "csv-generate": "^2.2.2",
     "csv-parse": "^2.5.0",
     "date-fns": "^1.29.0",
     "json2csv": "^4.2.1",
+    "path": "^0.12.7",
     "ramda": "^0.25.0"
   },
   "devDependencies": {
