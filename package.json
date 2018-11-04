@@ -28,22 +28,22 @@
   "license": "MIT",
   "dependencies": {
     "csv": "^3.1.0",
-    "csv-generate": "^2.1.0",
+    "csv-generate": "^2.2.2",
     "csv-parse": "^2.5.0",
     "date-fns": "^1.29.0",
     "json2csv": "^4.2.1",
     "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.4",
+    "@types/chai": "^4.1.7",
     "@types/json2csv": "^4.2.0",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.7.0",
-    "@types/ramda": "^0.25.36",
-    "chai": "^4.1.2",
+    "@types/node": "^10.12.2",
+    "@types/ramda": "^0.25.40",
+    "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "ts-lint": "^4.5.1",
     "ts-node": "^7.0.1",
-    "typescript": "^3.0.1"
+    "typescript": "^3.1.6"
   }
 }
