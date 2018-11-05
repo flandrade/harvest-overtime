@@ -34,6 +34,8 @@ Please make sure your CSV is using these same headers.
 $ npm install -g harvest-overtime
 ```
 
+You can also use [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) to avoid pollution.
+
 ## Usage
 
 ```bash
@@ -41,7 +43,7 @@ harvest-overtime -i [input-file] -o [output-file]
 ```
 
 Where `input-file` and `output-file` are the path and file for the
-input and output. If these file paths are not defined, it will
+input and output. If these file paths are not provided, it will
 use the following:
 
 - input: harvest.csv
@@ -62,7 +64,7 @@ Options:
 ## Examples
 
 ```bash
-harvest-overtime harvest_time_report_from2018-08-06to2018-08-12.csv report.csv
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
 ```
 
 The overtime report (`report.csv`) is:
