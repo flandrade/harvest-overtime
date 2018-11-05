@@ -4,8 +4,8 @@ import { Employee } from "../../src/models";
 import parse from "../../src/parser/parser-from-csv";
 
 describe("Parser.ParserFromCsv", () => {
-  describe("#date", () => {
-    describe("when field is valid", () => {
+  context("#date", () => {
+    context("when field is valid", () => {
       it("parses the value", () => {
         const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
         const parsed: Employee = parse(csv)[0];
@@ -13,8 +13,8 @@ describe("Parser.ParserFromCsv", () => {
       });
     });
 
-    describe("when field is not valid", () => {
-      describe("when field is incorrect", () => {
+    context("when field is not valid", () => {
+      context("when field is incorrect", () => {
         it("parses the value", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,Persuasion,8`;
           const parsed: Employee = parse(csv)[0];
@@ -22,7 +22,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("when field is empty", () => {
+      context("when field is empty", () => {
         it("parses to empty", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,,8`;
           const parsed: Employee = parse(csv)[0];
@@ -33,8 +33,8 @@ describe("Parser.ParserFromCsv", () => {
   });
 
   describe("#employee", () => {
-    describe("when field is valid", () => {
-      describe("and field is 'Yes'", () => {
+    context("when field is valid", () => {
+      context("and field is 'Yes'", () => {
         it("parses to true", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -42,7 +42,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("and field is 'No'", () => {
+      context("and field is 'No'", () => {
         it("parses to false", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -51,8 +51,8 @@ describe("Parser.ParserFromCsv", () => {
       });
     });
 
-    describe("when field is not valid", () => {
-      describe("and field is different than 'Yes'", () => {
+    context("when field is not valid", () => {
+      context("and field is different than 'Yes'", () => {
         it("parses to false", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -60,7 +60,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("and field is empty", () => {
+      context("and field is empty", () => {
         it("parses to false", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\n,Jane,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -71,8 +71,8 @@ describe("Parser.ParserFromCsv", () => {
   });
 
   describe("#hours", () => {
-    describe("when field is valid", () => {
-      describe("and field is a number", () => {
+    context("when field is valid", () => {
+      context("and field is a number", () => {
         it("parses to a number", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -81,8 +81,8 @@ describe("Parser.ParserFromCsv", () => {
       });
     });
 
-    describe("when field is not valid", () => {
-      describe("and field is not a number", () => {
+    context("when field is not valid", () => {
+      context("and field is not a number", () => {
         it("parses to zero", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,Mmm`;
           const parsed: Employee = parse(csv)[0];
@@ -90,7 +90,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("and field is empty", () => {
+      context("and field is empty", () => {
         it("parses to zero", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,`;
           const parsed: Employee = parse(csv)[0];
@@ -101,7 +101,7 @@ describe("Parser.ParserFromCsv", () => {
   });
 
   describe("#name", () => {
-    describe("when fields are valid", () => {
+    context("when fields are valid", () => {
       it("parses the value", () => {
         const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
         const parsed: Employee = parse(csv)[0];
@@ -109,8 +109,8 @@ describe("Parser.ParserFromCsv", () => {
       });
     });
 
-    describe("when field are not valid", () => {
-      describe("when field is incorrect", () => {
+    context("when field are not valid", () => {
+      context("when field is incorrect", () => {
         it("parses the value", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Persuasion,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -118,7 +118,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("when some fields are empty", () => {
+      context("when some fields are empty", () => {
         it("parses to empty", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,,Austen,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];
@@ -126,7 +126,7 @@ describe("Parser.ParserFromCsv", () => {
         });
       });
 
-      describe("when fields are empty", () => {
+      context("when fields are empty", () => {
         it("parses to empty", () => {
           const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,,,2018-08-06,8`;
           const parsed: Employee = parse(csv)[0];

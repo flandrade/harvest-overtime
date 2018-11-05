@@ -4,8 +4,8 @@ import { ReportEmployee } from "../../src/models";
 import parse from "../../src/parser/parser-to-csv";
 
 describe("Parser.ParserToCsv", () => {
-  describe("when fields are valid", () => {
-    describe("when there is a single element", () => {
+  context("when fields are valid", () => {
+    context("when there is a single element", () => {
       it("parses the element", () => {
         const report: ReportEmployee[] = [{
           employee: "Jane",
@@ -30,7 +30,7 @@ describe("Parser.ParserToCsv", () => {
       });
     });
 
-    describe("when there are several elements", () => {
+    context("when there are several elements", () => {
       it("parses the element", () => {
         const report: ReportEmployee[] = [{
           employee: "Jane",
@@ -73,8 +73,8 @@ describe("Parser.ParserToCsv", () => {
     });
   });
 
-  describe("when fields are invalid", () => {
-    describe("when fields are empty", () => {
+  context("when fields are invalid", () => {
+    context("when fields are empty", () => {
       it("parses with empty fields", () => {
         const report: ReportEmployee[] = [{
           employee: "",

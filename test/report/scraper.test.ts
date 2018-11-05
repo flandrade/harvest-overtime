@@ -4,8 +4,8 @@ import { Employee, ReportEmployee } from "../../src/models";
 import report from "../../src/report/scraper";
 
 describe("Reporter.Scraper", () => {
-  describe("when there is an element", () => {
-    describe("and is an employee", () => {
+  context("when there is an element", () => {
+    context("and is an employee", () => {
       it("returns the report", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
@@ -20,7 +20,7 @@ describe("Reporter.Scraper", () => {
       });
     });
 
-    describe("and is not an employee", () => {
+    context("and is not an employee", () => {
       it("returns an empty report", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
@@ -34,9 +34,9 @@ describe("Reporter.Scraper", () => {
     });
   });
 
-  describe("when there are several elements", () => {
-    describe("and there are several employees", () => {
-      describe("and there is a single entry for each one", () => {
+  context("when there are several elements", () => {
+    context("and there are several employees", () => {
+      context("and there is a single entry for each one", () => {
         it("returns the reports", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
@@ -60,7 +60,7 @@ describe("Reporter.Scraper", () => {
         });
       });
 
-      describe("and there are several entries for each one", () => {
+      context("and there are several entries for each one", () => {
         it("returns the reports", () => {
           const employees: Employee[] = [{
             date: "2018-08-06",
@@ -97,7 +97,7 @@ describe("Reporter.Scraper", () => {
       });
     });
 
-    describe("and there are several employees and non-employee", () => {
+    context("and there are several employees and non-employee", () => {
       it("returns the reports without non-employees", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",
@@ -118,7 +118,7 @@ describe("Reporter.Scraper", () => {
       });
     });
 
-    describe("and there are several non-employees", () => {
+    context("and there are several non-employees", () => {
       it("returns an empty report", () => {
         const employees: Employee[] = [{
           date: "2018-08-06",

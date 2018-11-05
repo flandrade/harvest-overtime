@@ -37,15 +37,27 @@ $ npm install -g harvest-overtime
 ## Usage
 
 ```bash
-harvest-overtime [input-file] [output-file]
+harvest-overtime -i [input-file] -o [output-file]
 ```
 
-Where `input-file` and `output-file` are the files paths for the
+Where `input-file` and `output-file` are the path and file for the
 input and output. If these file paths are not defined, it will
 use the following:
 
 - input: harvest.csv
 - output: report.csv
+
+## Command Line Interface
+
+```
+Usage: harvest-overtime [options]
+
+Options:
+  -V, --version          output the version number
+  -i, --input [input]    Path and name of the incoming CSV file. If not provided, will be 'harvest.csv'
+  -o, --output [output]  Path and name of the resulting CSV file. If not provided, will be 'report.csv'
+  -h, --help             output usage information
+```
 
 ## Examples
 
