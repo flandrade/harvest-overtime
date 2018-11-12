@@ -25,12 +25,15 @@ const args: Files = decorateArgs(
 );
 
 reporter(args.inputPath, args.outputPath)
-  .finally(() => {
-    console.log(`Input file is ${infoColor(args.inputPath)}`);
-  })
   .then(() => {
-    console.log(`Done. Output file is ${infoColor(args.outputPath)}`);
+    console.log(`
+      Input file is ${infoColor(args.inputPath)}.
+      Output file is ${infoColor(args.outputPath)}.
+    `);
   })
-  .catch(error => {
-    console.error(errorColor(`There was an issue. ${error.message}`));
+  .catch((error: Error) => {
+    console.error(`
+      It was not possible to process ${infoColor(args.inputPath)}.
+      ${errorColor(error.message)}
+    `);
   });

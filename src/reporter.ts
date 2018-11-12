@@ -1,3 +1,5 @@
+import * as Promise from "bluebird";
+
 import { read, write } from "./io";
 import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
