@@ -1,6 +1,6 @@
 {
   "name": "harvest-overtime",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Track the overtime!",
   "keywords": [
     "harvest",
@@ -11,6 +11,10 @@
     "convert",
     "parse"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flandrade/harvest-overtime.git"
+  },
   "main": "lib/harvest-overtime.js",
   "types": "lib/harvest-overtime.d.ts",
   "bin": {
@@ -28,6 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/chalk": "^2.2.0",
+    "bluebird": "^3.5.3",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "csv": "^3.1.0",
@@ -39,6 +44,7 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.24",
     "@types/chai": "^4.1.7",
     "@types/json2csv": "^4.2.0",
     "@types/mocha": "^5.2.5",
