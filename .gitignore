@@ -31,3 +31,4 @@ npm-debug.log
 
 # TypeScript and JS files
 .tscache
+lib
