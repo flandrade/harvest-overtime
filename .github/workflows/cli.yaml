@@ -1,4 +1,4 @@
-name: Harvest Overtime CLI
+name: harvest-overtime
 
 on: [push]
 
