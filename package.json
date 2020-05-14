@@ -34,6 +34,7 @@
     "@types/chalk": "^2.2.0",
     "bluebird": "^3.7.2",
     "chalk": "^2.4.2",
+    "cli-table3": "^0.6.0",
     "commander": "^2.20.3",
     "csv": "^5.3.2",
     "csv-generate": "^2.2.2",

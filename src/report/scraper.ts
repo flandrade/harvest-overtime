@@ -4,13 +4,14 @@ import { Employee, ReportEmployee, Timesheet } from "../models";
 import { getOvertime, getTimesheet } from "./calculator";
 
 export default function report(
-  employees: Employee[],
-  regularDayHours: number
-): ReportEmployee[] {
+  regularDayHours: number,
+): (employees: Employee[]) => ReportEmployee[] {
+  return (employees) => {
   const onlyEmployees: Employee[] = R.filter(n => n.employee, employees);
   const employeeNames: string[] = R.uniq(R.map(n => n.name, onlyEmployees));
 
   return R.map(n => getInformationByEmployee(n, onlyEmployees, regularDayHours), employeeNames);
+  }
 }
 
 function getInformationByEmployee(

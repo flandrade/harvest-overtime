@@ -71,35 +71,12 @@ Options:
   -V, --version          output the version number
   -i, --input [input]    Path and name of the incoming CSV file. If not provided, will be 'harvest.csv'
   -o, --output [output]  Path and name of the resulting CSV file. If not provided, will be 'report.csv'
-  -dh, --dhours [output]  Regular working day hours. If not provided, will be '8 hours'
+  -dh, --dhours [output] Regular working day hours. If not provided, will be '8 hours'
+  -p, --print            Print report to the standard output. If not set, it won't print the report'
   -h, --help             output usage information
 ```
 
 ## 📚 Examples
-
-If `-dh` is no included, the overtime report (`report.csv`) will use the standard regular working day
-hours (8):
-
-```bash
-harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
-```
-
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
-| Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
-| Emily Bronte | 1        | 1        | 7          | 10         | 1          |
-
-Add `-dh` in order to change the regular working hours. For instance, if the regular working day
-has 7 hours:
-
-```bash
-harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -dh 7
-```
-
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
-| Jane Austen  | 4        | 0        | 8.5        | 9.5        |            |
-| Emily Bronte | 3        | 1        | 7          | 10         | 1          |
 
 The Harvest's report includes the following data entries. Please note that
 this is an extract from the CSV file.
@@ -118,6 +95,53 @@ this is an extract from the CSV file.
 | Yes      | Emily      | Bronte    | 2018-08-07 | 8     |
 | Yes      | Emily      | Bronte    | 2018-08-07 | 2     |
 | Yes      | Emily      | Bronte    | 2018-08-11 | 1     |
+
+- If `-dh` is no included, the overtime report (`report.csv`) will use the standard regular
+working day hours (8):
+
+```bash
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
+```
+
+|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+|--------------|----------|----------|------------|------------|------------|
+| Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 1        | 1        | 7          | 10         | 1          |
+
+- Add `-dh` in order to change the regular working hours. For instance, if the regular working
+day has 7 hours:
+
+```bash
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -dh 7
+```
+
+|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+|--------------|----------|----------|------------|------------|------------|
+| Jane Austen  | 4        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 3        | 1        | 7          | 10         | 1          |
+
+- Add `-p` in order to print the report to the console. You can also check your report in the
+provided `output` file: `report.csv`.
+```bash
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -p
+```
+
+```bash
+harvest-overtime ⏰
+
+Regular day hours: 8
+Input file: harvest_time_report_from2018-08-06to2018-08-12.csv
+Output file: report.csv
+
+┌──────────────┬──────────┬──────────┐
+│ Employee     │ Weekdays │ Weekends │
+├──────────────┼──────────┼──────────┤
+│ Jane Austen  │ 2.0000   │ 0.0000   │
+├──────────────┼──────────┼──────────┤
+│ Emily Bronte │ 1.0000   │ 1.0000   │
+└──────────────┴──────────┴──────────┘
+```
+
 
 ## 📣 Feedback
 If you have any suggestions or want to let me know what you think of this tool, feel free to open [an issue](https://github.com/flandrade/harvest-overtime/issues).
