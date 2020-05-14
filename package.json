@@ -51,7 +51,7 @@
     "@types/node": "^10.14.19",
     "@types/ramda": "^0.25.51",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0",
+    "mocha": "^7.1.2",
     "ts-lint": "^4.5.1",
     "ts-node": "^7.0.1",
     "typescript": "^3.6.3"
