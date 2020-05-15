@@ -41,6 +41,6 @@ function mkNumber(
   defaultValue: string
 ): number {
   const value = maybeValue ?? defaultValue;
-  const result = parseInt(value);
+  const result = parseInt(value, 10);
   return isNaN(result) ? Number(defaultValue) : result ;
 }
