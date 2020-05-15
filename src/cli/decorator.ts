@@ -14,7 +14,7 @@ interface OptionParams<T> {
 export function decorateArgs(
   input: OptionParams<string>,
   output: OptionParams<string>,
-  rDayHours: OptionParams<string>,
+  rDayHours: OptionParams<string>
 ): Options {
   const inputPath: string = mkPathAbsolute(input.option, input.default);
   const outputPath: string = mkPathAbsolute(output.option, output.default);
@@ -31,16 +31,13 @@ function mkPathAbsolute(
   defaultPath: string
 ): string {
   const filePath = maybeFilePath ?? defaultPath;
-  return (filePath && !path.isAbsolute(filePath))
+  return filePath && !path.isAbsolute(filePath)
     ? path.join(process.cwd(), filePath)
     : filePath;
 }
 
-function mkNumber(
-  maybeValue: string | null,
-  defaultValue: string
-): number {
+function mkNumber(maybeValue: string | null, defaultValue: string): number {
   const value = maybeValue ?? defaultValue;
   const result = parseInt(value, 10);
-  return isNaN(result) ? Number(defaultValue) : result ;
+  return isNaN(result) ? Number(defaultValue) : result;
 }

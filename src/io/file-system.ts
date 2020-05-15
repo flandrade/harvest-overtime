@@ -20,9 +20,8 @@ export function read(filePath: string): Promise<string> {
   return readFileAsync(filePath, DEFAULT_ENCODING);
 }
 export function write(
-  filePath: string
-): (data: string) => void {
-  return data => {
-    writeFileAsync(filePath, data, { encoding: DEFAULT_ENCODING });
-  };
+  filePath: string,
+  data: string
+): void {
+  writeFileAsync(filePath, data, { encoding: DEFAULT_ENCODING });
 }
