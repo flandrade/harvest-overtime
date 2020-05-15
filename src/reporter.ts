@@ -1,10 +1,10 @@
 import * as Promise from "bluebird";
 
 import { read, write } from "./io/file-system";
+import { ReportEmployee } from "./models";
 import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
 import report from "./report/scraper";
-import { ReportEmployee } from "./models";
 
 export const CUR_VERSION: string = "2.1.1";
 export const DEF_INPUT: string = "harvest.csv";
@@ -22,5 +22,5 @@ export default function reporter(
     .tap(report => {
       const csvInfo = parseToReport(report);
       write(output, csvInfo);
-    })
+    });
 }

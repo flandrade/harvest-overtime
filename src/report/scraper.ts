@@ -11,7 +11,7 @@ export default function report(
   const employeeNames: string[] = R.uniq(R.map(n => n.name, onlyEmployees));
 
   return R.map(n => getInformationByEmployee(n, onlyEmployees, regularDayHours), employeeNames);
-  }
+  };
 }
 
 function getInformationByEmployee(
