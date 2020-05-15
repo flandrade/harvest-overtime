@@ -8,6 +8,7 @@ const Table = require("cli-table3");
 const bold: chalk.Chalk = chalk.default.bold;
 const errorColor: chalk.Chalk = chalk.default.bold.red;
 const infoColor: chalk.Chalk = chalk.default.bold.blue;
+const reset: chalk.Chalk = chalk.default.reset;
 const titleColor: chalk.Chalk = chalk.default.bold.bgRedBright;
 
 const TITLE = `${titleColor("harvest-overtime")} ⏰`;
@@ -39,9 +40,16 @@ export function toTable(reportEmployee: ReportEmployee[]): string {
 }
 
 function setHour(value: number): string {
-  const fixedNumber = value.toFixed(4);
-  if (value > 0) {
-    return errorColor(fixedNumber);
+  const color = setColor(value);
+  if (Number.isInteger(value)) {
+    return color(value.toString());
   }
-  return fixedNumber;
+  return color(value.toFixed(4));
+}
+
+function setColor(value: number): chalk.Chalk {
+  if (value > 0) {
+    return errorColor;
+  }
+  return reset;
 }

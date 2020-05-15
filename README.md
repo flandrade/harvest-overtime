@@ -101,7 +101,7 @@ this is an extract from the CSV file.
 
 ### Using the standard regular working day hours
 
-If `-dh` is no included, the overtime report (`report.csv`) will use the standard regular
+If `-h` is no included, the overtime report (`report.csv`) will use the standard regular
 working day hours (8):
 
 ```bash
@@ -115,7 +115,7 @@ harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report
 
 ### Changing the regular working day hours
 
-Add `-dh` in order to change the regular working hours. For instance, if the regular working
+Add `-h` in order to change the regular working hours. For instance, if the regular working
 day has 7 hours:
 
 ```bash

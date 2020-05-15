@@ -120,5 +120,79 @@ describe("Cli.Presenter", () => {
         expect(parsed).to.have.string("Emily");
       });
     });
+
+    context("when overtime is present", () => {
+      context("when the value is an integer", () => {
+        it("returns the integer", () => {
+          const report: ReportEmployee[] = [
+            {
+              employee: "Jane",
+              report: {
+                weekdays: 2,
+                weekends: 0
+              },
+              timesheet: [
+                {
+                  date: "2018-08-06",
+                  hours: 10,
+                  isWeekend: false
+                }
+              ]
+            }
+          ];
+          const parsed: string = toTable(report);
+          expect(parsed).to.have.string("2");
+          expect(parsed).to.not.have.string("2.0000");
+        });
+      });
+
+      context("when the value is 0", () => {
+        it("returns 0", () => {
+          const report: ReportEmployee[] = [
+            {
+              employee: "Jane",
+              report: {
+                weekdays: 0,
+                weekends: 0
+              },
+              timesheet: [
+                {
+                  date: "2018-08-06",
+                  hours: 10,
+                  isWeekend: false
+                }
+              ]
+            }
+          ];
+          const parsed: string = toTable(report);
+          expect(parsed).to.have.string("0");
+          expect(parsed).to.not.have.string("0.0000");
+        });
+      });
+
+      context("when the value is not an interger", () => {
+        it("returns fixed value", () => {
+          const report: ReportEmployee[] = [
+            {
+              employee: "Jane",
+              report: {
+                weekdays: 1.25555555555,
+                weekends: 0
+              },
+              timesheet: [
+                {
+                  date: "2018-08-06",
+                  hours: 10,
+                  isWeekend: false
+                }
+              ]
+            }
+          ];
+          const parsed: string = toTable(report);
+          expect(parsed).to.have.string("1.2556");
+          expect(parsed).to.not.have.string("1.25555555555");
+        });
+      });
+    });
   });
 });
