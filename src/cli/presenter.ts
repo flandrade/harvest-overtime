@@ -49,7 +49,7 @@ function setHour(value: number): string {
 
 function setColor(value: number): chalk.Chalk {
   if (value > 0) {
-    return errorColor
+    return errorColor;
   }
   return reset;
 }
