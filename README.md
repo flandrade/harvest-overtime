@@ -3,33 +3,34 @@
 [![npm version](https://badge.fury.io/js/harvest-overtime.svg)](https://badge.fury.io/js/harvest-overtime)
 [![Build Status](https://github.com/flandrade/harvest-overtime/workflows/harvest-overtime/badge.svg)](https://github.com/flandrade/harvest-overtime/actions)
 
-This is a command line interface to calculates employee's overtime with Harvest's CSV reports. Built with TypeScript and Node.js.
+Command-line interface to calculates employee's overtime with Harvest's CSV reports. Built with TypeScript and Node.js.
 
-- [harvest-overtime ⏰](#harvest-overtime-%e2%8f%b0)
-  - [✨ Features and limitations](#%e2%9c%a8-features-and-limitations)
-  - [📌 CSV Requirements](#%f0%9f%93%8c-csv-requirements)
-  - [🚀 How to install](#%f0%9f%9a%80-how-to-install)
-  - [🏗 Usage](#%f0%9f%8f%97-usage)
-  - [🔨 Command Line Interface](#%f0%9f%94%a8-command-line-interface)
-  - [📚 Examples](#%f0%9f%93%9a-examples)
+- [harvest-overtime ⏰](#harvest-overtime-)
+  - [✨ Features and limitations](#-features-and-limitations)
+  - [📌 CSV Requirements](#-csv-requirements)
+  - [🚀 How to install](#-how-to-install)
+  - [🏗 Usage](#-usage)
+  - [🔨 Command Line Interface](#-command-line-interface)
+  - [📚 Examples](#-examples)
     - [Using the standard regular working day hours](#using-the-standard-regular-working-day-hours)
     - [Changing the regular working day hours](#changing-the-regular-working-day-hours)
     - [Printing the report to the command line](#printing-the-report-to-the-command-line)
-  - [📣 Feedback](#%f0%9f%93%a3-feedback)
+  - [📣 Feedback](#-feedback)
   - [License](#license)
 
 ⭐ Star me on GitHub — thanks!
 
 ## ✨ Features and limitations
 
-- Calculates overtime of employees.
-- Supports standard full-time work (40 hours per week: 8 hours per day). You can customize the number
-  of hours per day. See an [example](#examples).
-- Supports any report period. It can be a week or several months.
-- Includes time per dates. See an [example](#examples).
-- Includes both weekdays and weekends. See an [example](#examples).
-- Doesn't support national holidays.
-- Specific headers are required. See next section.
+- Calculates overtime of employees: generates a report or prints to the command line. See an
+  [example](#printing-the-report-to-the-command-line).
+- Supports standard full-time work (40 hours per week: 8 hours per day). You can change this value.
+  See an [example](#changing-the-regular-working-day-hours).
+- Supports any reporting period. It can be a week or several months.
+- Includes time per date. See an [example](#-examples).
+- Includes both weekdays and weekends. See an [example](#-examples).
+- It doesn't support national holidays.
+- Specific headers are required. See the next section.
 
 ## 📌 CSV Requirements
 
@@ -46,7 +47,7 @@ Please make sure your CSV is using these headers. See an [example](https://raw.g
 ## 🚀 How to install
 
 ```bash
-# Global so it can be call from anywhere
+# Global so it can be called from anywhere
 npm install -g harvest-overtime
 ```
 
@@ -55,7 +56,7 @@ You can also use [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-
 ## 🏗 Usage
 
 ```bash
-harvest-overtime -i [input-file] -o [output-file]
+harvest-overtime -i [input-file] -o [output-file] -h [working-day-hours] -p
 ```
 
 Where `input-file` and `output-file` are the path and file for the
@@ -65,18 +66,25 @@ use the following:
 - input: harvest.csv
 - output: report.csv
 
+The `-h` option sets the `working-day-hours`. This value defines the
+regular working day hours in order to calculate the overtime. If the
+value is not provided, it will use 8 hours per day.
+
+This tool generates a report file, but you can add `-p` to print the report
+to the command line.
+
 ## 🔨 Command Line Interface
 
 ```
 Usage: harvest-overtime [options]
 
 Options:
-  -V, --version          output the version number
-  -i, --input [input]    Path and name of the incoming CSV file. If not provided, will be 'harvest.csv'
-  -o, --output [output]  Path and name of the resulting CSV file. If not provided, will be 'report.csv'
-  -dh, --dhours [output] Regular working day hours. If not provided, will be '8 hours'
-  -p, --print            Print report to the standard output. If not set, it won't print the report'
-  -h, --help             output usage information
+  -V, --version           output the version number
+  -i, --input [input]     Path and name of the incoming CSV file. If not provided, will be 'harvest.csv'
+  -o, --output [output]   Path and name of the resulting CSV file. If not provided, will be 'report.csv'
+  -h, --dayhours [output] Regular working day hours. If not provided, will be '8 hours'
+  -p, --print             Print report to the standard output. If not set, it won't print the report
+  -h, --help              output usage information
 ```
 
 ## 📚 Examples
@@ -101,8 +109,8 @@ this is an extract from the CSV file.
 
 ### Using the standard regular working day hours
 
-If `-h` is no included, the overtime report (`report.csv`) will use the standard regular
-working day hours (8):
+If `-h` is no included, the overtime report will use the standard regular working day
+(8 hours per day):
 
 ```bash
 harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
@@ -119,7 +127,7 @@ Add `-h` in order to change the regular working hours. For instance, if the regu
 day has 7 hours:
 
 ```bash
-harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -dh 7
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -h 7
 ```
 
 |Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
@@ -130,7 +138,7 @@ harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report
 ### Printing the report to the command line
 
 Add `-p` in order to print the report. You can also check your report in the
-provided `output` file: `report.csv`.
+provided `output` file:
 
 ```bash
 harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -p
