@@ -1,12 +1,11 @@
-# harvest-overtime
+# harvest-overtime ⏰
 
 [![npm version](https://badge.fury.io/js/harvest-overtime.svg)](https://badge.fury.io/js/harvest-overtime)
 [![Build Status](https://github.com/flandrade/harvest-overtime/workflows/harvest-overtime/badge.svg)](https://github.com/flandrade/harvest-overtime/actions)
 
-⭐ Star me on GitHub — thanks!
+This is a CLI to calculates employee's overtime with Harvest's CSV reports. Built with TypeScript and Node.js.
 
-- [harvest-overtime](#harvest-overtime)
-  - [🗒 Description](#%f0%9f%97%92-description)
+- [harvest-overtime ⏰](#harvest-overtime-%e2%8f%b0)
   - [✨ Features and limitations](#%e2%9c%a8-features-and-limitations)
   - [📌 CSV Requirements](#%f0%9f%93%8c-csv-requirements)
   - [🚀 How to install](#%f0%9f%9a%80-how-to-install)
@@ -16,13 +15,13 @@
   - [📣 Feedback](#%f0%9f%93%a3-feedback)
   - [License](#license)
 
-## 🗒 Description
-This is a CLI to calculates employee's overtime with Harvest's CSV reports. Built with TypeScript and Node.js.
+⭐ Star me on GitHub — thanks!
 
 ## ✨ Features and limitations
 
 - Calculates overtime of employees.
-- Only supports full-time work, 40 hours per week.
+- Supports standard full-time work (40 hours per week: 8 hours per day). You can customize the number of
+  hours per day. See an [example](#examples).
 - Supports any report period. It can be a week or several months.
 - Report includes time per dates. See an [example](#examples).
 - Overtime's report for both weekdays and weekends. See an [example](#examples).
@@ -72,21 +71,35 @@ Options:
   -V, --version          output the version number
   -i, --input [input]    Path and name of the incoming CSV file. If not provided, will be 'harvest.csv'
   -o, --output [output]  Path and name of the resulting CSV file. If not provided, will be 'report.csv'
+  -dh, --dhours [output]  Regular working day hours. If not provided, will be '8 hours'
   -h, --help             output usage information
 ```
 
 ## 📚 Examples
 
+If `-dh` is no included, the overtime report (`report.csv`) will use the standard regular working day
+hours (8):
+
 ```bash
 harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
 ```
-
-The overtime report (`report.csv`) is:
 
 |Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
 |--------------|----------|----------|------------|------------|------------|
 | Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
 | Emily Bronte | 1        | 1        | 7          | 10         | 1          |
+
+Add `-dh` in order to change the regular working hours. For instance, if the regular working day
+has 7 hours:
+
+```bash
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -dh 7
+```
+
+|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+|--------------|----------|----------|------------|------------|------------|
+| Jane Austen  | 4        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 3        | 1        | 7          | 10         | 1          |
 
 The Harvest's report includes the following data entries. Please note that
 this is an extract from the CSV file.

@@ -3,6 +3,8 @@ import { expect } from "chai";
 import { Employee, ReportEmployee } from "../../src/models";
 import report from "../../src/report/scraper";
 
+const REGULAR_DAY_HOURS = 8;
+
 describe("Reporter.Scraper", () => {
   context("when there is an element", () => {
     context("and is an employee", () => {
@@ -13,7 +15,7 @@ describe("Reporter.Scraper", () => {
           hours: 5,
           name: "Jane Austen"
         }];
-        const result: ReportEmployee[] = report(employees);
+        const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS);
         expect(result[0]).to.have.property("employee", "Jane Austen");
         expect(result[0]).to.have.property("report");
         expect(result[0]).to.have.property("timesheet");
@@ -28,7 +30,7 @@ describe("Reporter.Scraper", () => {
           hours: 5,
           name: "Jane Austen"
         }];
-        const result: ReportEmployee[] = report(employees)
+        const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS)
         expect(result).to.be.empty;
       });
     });
@@ -49,7 +51,7 @@ describe("Reporter.Scraper", () => {
             hours: 8,
             name: "Emily Bronte"
           }];
-          const result: ReportEmployee[] = report(employees);
+          const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS);
           expect(result).to.have.lengthOf(2);
           expect(result[0]).to.have.property("employee", "Jane Austen");
           expect(result[0]).to.have.property("report");
@@ -85,7 +87,7 @@ describe("Reporter.Scraper", () => {
             name: "Emily Bronte"
           }
         ];
-          const result: ReportEmployee[] = report(employees);
+          const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS);
           expect(result).to.have.lengthOf(2);
           expect(result[0]).to.have.property("employee", "Jane Austen");
           expect(result[0]).to.have.property("report");
@@ -110,7 +112,7 @@ describe("Reporter.Scraper", () => {
           hours: 8,
           name: "Emily Bronte"
         }];
-        const result: ReportEmployee[] = report(employees);
+        const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS);
         expect(result).to.have.lengthOf(1);
         expect(result[0]).to.have.property("employee", "Jane Austen");
         expect(result[0]).to.have.property("report");
@@ -131,7 +133,7 @@ describe("Reporter.Scraper", () => {
           hours: 5,
           name: "Emily Bronte"
         }];
-        const result: ReportEmployee[] = report(employees);
+        const result: ReportEmployee[] = report(employees, REGULAR_DAY_HOURS);
         expect(result).to.be.empty;
       });
     });
