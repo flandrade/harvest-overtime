@@ -22,7 +22,7 @@ program
     `Path and name of the resulting CSV file. If not provided, will be '${DEF_OUTPUT}'`
   )
   .option(
-    "-dh, --dayhours [hours]",
+    "-h, --dayhours [hours]",
     `Regular working day hours. If not provided, will be '${DEF_REGULAR_DAY_HOURS}' hours`
   )
   .option(

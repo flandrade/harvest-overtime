@@ -38,6 +38,6 @@ function mkPathAbsolute(
 
 function mkNumber(maybeValue: string | null, defaultValue: string): number {
   const value = maybeValue ?? defaultValue;
-  const result = parseInt(value, 10);
+  const result = Number(value)
   return isNaN(result) ? Number(defaultValue) : result;
 }
