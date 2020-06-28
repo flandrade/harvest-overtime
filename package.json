@@ -22,7 +22,7 @@
   },
   "scripts": {
     "compile": "tsc",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "eslint 'src/**/*.ts'",
     "prestart": "npm run compile",
     "pack-publish": "npm run compile && npm publish",
     "start": "node lib/harvest-overtime.js",
@@ -51,9 +51,11 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.17.21",
     "@types/ramda": "^0.25.51",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
     "chai": "^4.2.0",
+    "eslint": "^7.3.1",
     "mocha": "^7.1.2",
-    "ts-lint": "^4.5.1",
     "ts-node": "^7.0.1",
     "typescript": "^3.9.2"
   }

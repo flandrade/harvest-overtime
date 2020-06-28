@@ -27,7 +27,7 @@ program
   )
   .option(
     "-p, --print",
-    `Print report to the standard output. If not set, it won't print the report`
+    "Print report to the standard output. If not set, it won't print the report"
   )
   .parse(process.argv);
 
