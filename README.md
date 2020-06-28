@@ -3,7 +3,10 @@
 [![npm version](https://badge.fury.io/js/harvest-overtime.svg)](https://badge.fury.io/js/harvest-overtime)
 [![Build Status](https://github.com/flandrade/harvest-overtime/workflows/harvest-overtime/badge.svg)](https://github.com/flandrade/harvest-overtime/actions)
 
-Command-line interface to calculates employee's overtime with Harvest's CSV reports. Built with TypeScript and Node.js.
+Command-line interface to calculate employee's overtime with [Harvest's CSV reports](https://www.getharvest.com/features/projects). [Harvest](https://www.getharvest.com/) is a service
+that provides time tracking and online invoicing tools for freelancers and small businesses.
+
+Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 
 - [harvest-overtime ⏰](#harvest-overtime-)
   - [✨ Features and limitations](#-features-and-limitations)
@@ -15,26 +18,26 @@ Command-line interface to calculates employee's overtime with Harvest's CSV repo
     - [Using the standard regular working day hours](#using-the-standard-regular-working-day-hours)
     - [Changing the regular working day hours](#changing-the-regular-working-day-hours)
     - [Printing the report to the command line](#printing-the-report-to-the-command-line)
+  - [🙋 Help and Support](#-help-and-support)
   - [📣 Feedback](#-feedback)
   - [License](#license)
 
-⭐ Star me on GitHub — thanks!
+## ✨ Features and Limitations
 
-## ✨ Features and limitations
-
+- Supports [Harvest's CSV reports](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/).
 - Calculates overtime of employees: generates a report or prints to the command line. See an
   [example](#printing-the-report-to-the-command-line).
 - Supports standard full-time work (40 hours per week: 8 hours per day). You can change this value.
   See an [example](#changing-the-regular-working-day-hours).
 - Supports any reporting period. It can be a week or several months.
-- Includes time per date. See an [example](#-examples).
+- Includes total time per day. See an [example](#-examples).
 - Includes both weekdays and weekends. See an [example](#-examples).
 - It doesn't support national holidays.
 - Specific headers are required. See the next section.
 
 ## 📌 CSV Requirements
 
-CSV files should include at least the following data:
+[CSV reports](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/) should include at least the following data:
 
 - **"Employee?":** whether they are employees or not.
 - **"First Name":** the employees' first names.
@@ -44,7 +47,9 @@ CSV files should include at least the following data:
 
 Please make sure your CSV is using these headers. See an [example](https://raw.githubusercontent.com/flandrade/harvest-overtime/master/harvest-example.csv).
 
-## 🚀 How to install
+## 🚀 How to Install
+
+In order for you and your team to use this tool, you'll need to [install Node.js](https://nodejs.org/en/download/).
 
 ```bash
 # Global so it can be called from anywhere
@@ -107,7 +112,7 @@ this is an extract from the CSV file.
 | Yes      | Emily      | Bronte    | 2018-08-07 | 2     |
 | Yes      | Emily      | Bronte    | 2018-08-11 | 1     |
 
-### Using the standard regular working day hours
+### Using the Standard Regular Working Day Hours
 
 If `-h` is no included, the overtime report will use the standard regular working day
 (8 hours per day):
@@ -116,33 +121,39 @@ If `-h` is no included, the overtime report will use the standard regular workin
 harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv
 ```
 
+**CSV report:**
+
 |Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
 |--------------|----------|----------|------------|------------|------------|
 | Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
 | Emily Bronte | 1        | 1        | 7          | 10         | 1          |
 
-### Changing the regular working day hours
+### Changing the Regular Working Day Hours
 
 Add `-h` in order to change the regular working hours. For instance, if the regular working
-day has 7 hours:
+day has 6 hours:
 
 ```bash
-harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -h 7
+harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -h 6
 ```
+
+**CSV report:**
 
 |Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
 |--------------|----------|----------|------------|------------|------------|
-| Jane Austen  | 4        | 0        | 8.5        | 9.5        |            |
-| Emily Bronte | 3        | 1        | 7          | 10         | 1          |
+| Jane Austen  | 6        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 5        | 1        | 7          | 10         | 1          |
 
-### Printing the report to the command line
+### Printing the Report to the Command Line
 
-Add `-p` in order to print the report. You can also check your report in the
-provided `output` file:
+Add `-p` in order to print the report. You can also check a detailed report (includes
+total time per day) in the provided `output` file.
 
 ```bash
 harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report.csv -p
 ```
+
+**Printed report:**
 
 ```bash
 harvest-overtime ⏰
@@ -154,11 +165,25 @@ Output file: report.csv
 ┌──────────────┬──────────┬──────────┐
 │ Employee     │ Weekdays │ Weekends │
 ├──────────────┼──────────┼──────────┤
-│ Jane Austen  │ 2.0000   │ 0.0000   │
+│ Jane Austen  │ 2        │ 0        │
 ├──────────────┼──────────┼──────────┤
-│ Emily Bronte │ 1.0000   │ 1.0000   │
-└──────────────┴──────────┴──────────┘
+│ Emily Bronte │ 1        │ 1        │
+└──────────────┴──────────┴──────────┘┘
 ```
+
+**CSV report:**
+
+|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+|--------------|----------|----------|------------|------------|------------|
+| Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
+| Emily Bronte | 1        | 1        | 7          | 10         | 1          |
+
+## 🙋 Help and Support
+- [Install Node.js](https://nodejs.org/en/download/)
+- [Install the npm CLI](https://npme.npmjs.com/docs/cli/installation.html)
+- [How to use and generate time reports on Harvest](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/)
+- [Using time tracking to prevent burnout on your team](https://www.getharvest.com/resources/using-time-tracking-to-prevent-burnout-on-your-team)
+- Open [an issue](https://github.com/flandrade/harvest-overtime/issues)
 
 ## 📣 Feedback
 If you have any suggestions or want to let me know what you think of this tool, feel free to open [an issue](https://github.com/flandrade/harvest-overtime/issues).

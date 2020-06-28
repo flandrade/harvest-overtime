@@ -1,3 +1,11 @@
+2.2.1
+
+* Chore: Improve documentation
+* Feature: Add option to print report (-p)
+* Feature: Add custom regular working day hours (-h)
+* Chore: Migrate to Github Actions
+* Chore: Upgrade Node and dependencies.
+
 2.1.1
 
 * Chore: Upgrade Node and dependencies.
