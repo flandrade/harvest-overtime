@@ -23,7 +23,7 @@ export default function parse(
 function decorateReport(
   report: ReportRawCsv
 ): Employee {
-  const fullName: string = `${report["First Name"]} ${report["Last Name"]}`;
+  const fullName = `${report["First Name"]} ${report["Last Name"]}`;
   return {
     date: report.Date,
     employee: report["Employee?"] === "Yes",

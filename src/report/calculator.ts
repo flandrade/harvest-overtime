@@ -22,21 +22,21 @@ export function getOvertime(
 ): Report {
   return {
     weekdays: getOvertimeByType(timesheet, false, regularDayHours),
-    weekends: getOvertimeByType(timesheet, true, regularDayHours),
+    weekends: getOvertimeByType(timesheet, true, regularDayHours)
   };
 }
 
 function getOvertimeByType(
   timesheet: Timesheet[],
-  isWeekend: boolean,
-  regularDayHours: number,
+  isWeekEnd: boolean,
+  regularDayHours: number
 ): number {
   const hourListByDay: number[] = R.pipe<Timesheet[], Timesheet[], number[]>(
-    R.filter<Timesheet>(n => n.isWeekend === isWeekend),
+    R.filter<Timesheet>(n => n.isWeekend === isWeekEnd),
     R.map<Timesheet, number>(n => n.hours)
   )(timesheet);
   const totalDays: number = hourListByDay.length;
-  const regularHours: number = isWeekend ? 0 : totalDays * regularDayHours;
+  const regularHours: number = isWeekEnd ? 0 : totalDays * regularDayHours;
   const totalHours: number = R.sum(hourListByDay);
 
   return totalHours - regularHours;

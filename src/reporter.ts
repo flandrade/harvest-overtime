@@ -6,21 +6,21 @@ import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
 import report from "./report/scraper";
 
-export const CUR_VERSION: string = "2.2.1";
-export const DEF_INPUT: string = "harvest.csv";
-export const DEF_OUTPUT: string = "report.csv";
-export const DEF_REGULAR_DAY_HOURS: string = "8";
+export const CUR_VERSION = "2.2.1";
+export const DEF_INPUT = "harvest.csv";
+export const DEF_OUTPUT = "report.csv";
+export const DEF_REGULAR_DAY_HOURS = "8";
 
 export default function reporter(
   input: string,
   output: string,
-  regularDayHours: number,
+  regularDayHours: number
 ): Promise<ReportEmployee[]> {
   return read(input)
     .then(parseFromReport)
     .then(report(regularDayHours))
-    .tap(report => {
-      const csvInfo = parseToReport(report);
+    .tap(res => {
+      const csvInfo = parseToReport(res);
       write(output, csvInfo);
     });
 }
