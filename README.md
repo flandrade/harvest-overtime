@@ -9,15 +9,15 @@ that provides time tracking and online invoicing tools for freelancers and small
 Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 
 - [harvest-overtime ⏰](#harvest-overtime-)
-  - [✨ Features and limitations](#-features-and-limitations)
+  - [✨ Features and Limitations](#-features-and-limitations)
   - [📌 CSV Requirements](#-csv-requirements)
-  - [🚀 How to install](#-how-to-install)
+  - [🚀 How to Install](#-how-to-install)
   - [🏗 Usage](#-usage)
   - [🔨 Command Line Interface](#-command-line-interface)
   - [📚 Examples](#-examples)
-    - [Using the standard regular working day hours](#using-the-standard-regular-working-day-hours)
-    - [Changing the regular working day hours](#changing-the-regular-working-day-hours)
-    - [Printing the report to the command line](#printing-the-report-to-the-command-line)
+    - [Using the Standard Regular Working Day Hours](#using-the-standard-regular-working-day-hours)
+    - [Changing the Regular Working Day Hours](#changing-the-regular-working-day-hours)
+    - [Printing the Report to the Command Line](#printing-the-report-to-the-command-line)
   - [🙋 Help and Support](#-help-and-support)
   - [📣 Feedback](#-feedback)
   - [License](#license)
@@ -37,7 +37,8 @@ Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 
 ## 📌 CSV Requirements
 
-[CSV reports](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/) should include at least the following data:
+[CSV reports](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/)
+should include at least the following data:
 
 - **"Employee?":** whether they are employees or not.
 - **"First Name":** the employees' first names.
@@ -56,7 +57,8 @@ In order for you and your team to use this tool, you'll need to [install Node.js
 npm install -g harvest-overtime
 ```
 
-You can also use [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) to avoid pollution.
+You can also use [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner)
+to avoid pollution.
 
 ## 🏗 Usage
 
@@ -97,20 +99,20 @@ Options:
 The Harvest report includes the following data entries. Please note that
 this is an extract from the CSV file.
 
-|Employee? | First Name | Last Name | Date       | Hours |
-|----------|------------|-----------|------------|-------|
-| Yes      | Jane       | Austen    | 2018-08-06 | 4     |
-| Yes      | Jane       | Austen    | 2018-08-06 | 4.5   |
-| Yes      | Jane       | Austen    | 2018-08-07 | 2.5   |
-| Yes      | Jane       | Austen    | 2018-08-07 | 3.5   |
-| Yes      | Jane       | Austen    | 2018-08-07 | 3     |
-| Yes      | Jane       | Austen    | 2018-08-07 | 0.5   |
-| Yes      | Emily      | Bronte    | 2018-08-06 | 1     |
-| Yes      | Emily      | Bronte    | 2018-08-06 | 4     |
-| Yes      | Emily      | Bronte    | 2018-08-06 | 2     |
-| Yes      | Emily      | Bronte    | 2018-08-07 | 8     |
-| Yes      | Emily      | Bronte    | 2018-08-07 | 2     |
-| Yes      | Emily      | Bronte    | 2018-08-11 | 1     |
+| Employee? | First Name | Last Name | Date       | Hours |
+| --------- | ---------- | --------- | ---------- | ----- |
+| Yes       | Jane       | Austen    | 2018-08-06 | 4     |
+| Yes       | Jane       | Austen    | 2018-08-06 | 4.5   |
+| Yes       | Jane       | Austen    | 2018-08-07 | 2.5   |
+| Yes       | Jane       | Austen    | 2018-08-07 | 3.5   |
+| Yes       | Jane       | Austen    | 2018-08-07 | 3     |
+| Yes       | Jane       | Austen    | 2018-08-07 | 0.5   |
+| Yes       | Emily      | Bronte    | 2018-08-06 | 1     |
+| Yes       | Emily      | Bronte    | 2018-08-06 | 4     |
+| Yes       | Emily      | Bronte    | 2018-08-06 | 2     |
+| Yes       | Emily      | Bronte    | 2018-08-07 | 8     |
+| Yes       | Emily      | Bronte    | 2018-08-07 | 2     |
+| Yes       | Emily      | Bronte    | 2018-08-11 | 1     |
 
 ### Using the Standard Regular Working Day Hours
 
@@ -123,8 +125,8 @@ harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report
 
 **CSV report:**
 
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
+| Employee     | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+| ------------ | -------- | -------- | ---------- | ---------- | ---------- |
 | Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
 | Emily Bronte | 1        | 1        | 7          | 10         | 1          |
 
@@ -139,8 +141,8 @@ harvest-overtime -i harvest_time_report_from2018-08-06to2018-08-12.csv -o report
 
 **CSV report:**
 
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
+| Employee     | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+| ------------ | -------- | -------- | ---------- | ---------- | ---------- |
 | Jane Austen  | 6        | 0        | 8.5        | 9.5        |            |
 | Emily Bronte | 5        | 1        | 7          | 10         | 1          |
 
@@ -173,12 +175,13 @@ Output file: report.csv
 
 **CSV report:**
 
-|Employee      | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
-|--------------|----------|----------|------------|------------|------------|
+| Employee     | Weekdays | Weekends | 2018-08-06 | 2018-08-07 | 2018-08-11 |
+| ------------ | -------- | -------- | ---------- | ---------- | ---------- |
 | Jane Austen  | 2        | 0        | 8.5        | 9.5        |            |
 | Emily Bronte | 1        | 1        | 7          | 10         | 1          |
 
 ## 🙋 Help and Support
+
 - [Install Node.js](https://nodejs.org/en/download/)
 - [Install the npm CLI](https://npme.npmjs.com/docs/cli/installation.html)
 - [How to use and generate time reports on Harvest](https://help.getharvest.com/harvest/reports/managing-harvest-reports/time-report/)
@@ -186,7 +189,10 @@ Output file: report.csv
 - Open [an issue](https://github.com/flandrade/harvest-overtime/issues)
 
 ## 📣 Feedback
-If you have any suggestions or want to let me know what you think of this tool, feel free to open [an issue](https://github.com/flandrade/harvest-overtime/issues).
+
+If you have any suggestions or want to let me know what you think of this tool, feel free to open
+[an issue](https://github.com/flandrade/harvest-overtime/issues).
 
 ## License
+
 MIT
