@@ -14,8 +14,8 @@ describe("Reporter.Scraper", () => {
             date: "2018-08-06",
             employee: true,
             hours: 5,
-            name: "Jane Austen"
-          }
+            name: "Jane Austen",
+          },
         ];
         const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
         expect(result[0]).to.have.property("employee", "Jane Austen");
@@ -31,8 +31,8 @@ describe("Reporter.Scraper", () => {
             date: "2018-08-06",
             employee: false,
             hours: 5,
-            name: "Jane Austen"
-          }
+            name: "Jane Austen",
+          },
         ];
         const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
         expect(result).to.be.empty;
@@ -49,14 +49,14 @@ describe("Reporter.Scraper", () => {
               date: "2018-08-06",
               employee: true,
               hours: 5,
-              name: "Jane Austen"
+              name: "Jane Austen",
             },
             {
               date: "2018-08-07",
               employee: true,
               hours: 8,
-              name: "Emily Bronte"
-            }
+              name: "Emily Bronte",
+            },
           ];
           const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
           expect(result).to.have.lengthOf(2);
@@ -76,26 +76,26 @@ describe("Reporter.Scraper", () => {
               date: "2018-08-06",
               employee: true,
               hours: 5,
-              name: "Jane Austen"
+              name: "Jane Austen",
             },
             {
               date: "2018-08-07",
               employee: true,
               hours: 8,
-              name: "Emily Bronte"
+              name: "Emily Bronte",
             },
             {
               date: "2018-08-06",
               employee: true,
               hours: 2,
-              name: "Jane Austen"
+              name: "Jane Austen",
             },
             {
               date: "2018-08-07",
               employee: true,
               hours: 1,
-              name: "Emily Bronte"
-            }
+              name: "Emily Bronte",
+            },
           ];
           const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
           expect(result).to.have.lengthOf(2);
@@ -116,14 +116,14 @@ describe("Reporter.Scraper", () => {
             date: "2018-08-06",
             employee: true,
             hours: 5,
-            name: "Jane Austen"
+            name: "Jane Austen",
           },
           {
             date: "2018-08-07",
             employee: false,
             hours: 8,
-            name: "Emily Bronte"
-          }
+            name: "Emily Bronte",
+          },
         ];
         const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
         expect(result).to.have.lengthOf(1);
@@ -140,14 +140,14 @@ describe("Reporter.Scraper", () => {
             date: "2018-08-06",
             employee: false,
             hours: 5,
-            name: "Jane Austen"
+            name: "Jane Austen",
           },
           {
             date: "2018-08-07",
             employee: false,
             hours: 5,
-            name: "Emily Bronte"
-          }
+            name: "Emily Bronte",
+          },
         ];
         const result: ReportEmployee[] = report(REGULAR_DAY_HOURS)(employees);
         expect(result).to.be.empty;

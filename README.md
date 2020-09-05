@@ -3,8 +3,8 @@
 [![npm version](https://badge.fury.io/js/harvest-overtime.svg)](https://badge.fury.io/js/harvest-overtime)
 [![Build Status](https://github.com/flandrade/harvest-overtime/workflows/harvest-overtime/badge.svg)](https://github.com/flandrade/harvest-overtime/actions)
 
-Command-line interface to calculate employee's overtime with [Harvest's CSV reports](https://www.getharvest.com/features/projects). [Harvest](https://www.getharvest.com/) is a service
-that provides time tracking and online invoicing tools for freelancers and small businesses.
+Command-line interface to calculate employee's overtime with [Harvest's CSV reports](https://www.getharvest.com/features/projects). [Harvest](https://www.getharvest.com/)
+is a service that provides time tracking and online invoicing tools for freelancers and small businesses.
 
 Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 

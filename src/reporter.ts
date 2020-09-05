@@ -19,7 +19,7 @@ export default function reporter(
   return read(input)
     .then(parseFromReport)
     .then(report(regularDayHours))
-    .tap(res => {
+    .tap((res) => {
       const csvInfo = parseToReport(res);
       write(output, csvInfo);
     });

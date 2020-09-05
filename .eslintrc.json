@@ -3,42 +3,21 @@
     "browser": true,
     "es2020": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 11
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "indent": [
+    "no-shadow": [
       "error",
-      2
+      {
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "allow": []
+      }
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "comma-dangle": ["error", "never"],
-    "no-shadow": ["error", {
-      "builtinGlobals": false,
-      "hoist": "functions",
-      "allow": [] }
-    ],
-    "no-unused-expressions": ["error"],
     "@typescript-eslint/no-var-requires": "off"
-
   }
 }

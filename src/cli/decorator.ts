@@ -22,7 +22,7 @@ export function decorateArgs(
   return {
     inputPath,
     outputPath,
-    regularDayHours
+    regularDayHours,
   };
 }
 

@@ -22,7 +22,7 @@
   },
   "scripts": {
     "compile": "tsc",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
     "prestart": "npm run compile",
     "pack-publish": "npm run compile && npm publish",
     "start": "node lib/harvest-overtime.js",
@@ -56,6 +56,7 @@
     "chai": "^4.2.0",
     "eslint": "^7.8.1",
     "mocha": "^7.2.0",
+    "prettier": "2.1.1",
     "ts-node": "^7.0.1",
     "typescript": "^3.9.7"
   }

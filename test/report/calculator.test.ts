@@ -10,14 +10,14 @@ describe("Reporter.Calculator", () => {
     context("when there is a date", () => {
       context("and is a weekday", () => {
         it("returns the timesheet", () => {
-          const date: string = "2018-08-06";
+          const date = "2018-08-06";
           const employees: Employee[] = [
             {
               date,
               employee: true,
               hours: 5,
-              name: "Jane Austen"
-            }
+              name: "Jane Austen",
+            },
           ];
           const result: Timesheet = getTimesheet(date, employees);
           expect(result).to.have.property("date", date);
@@ -28,14 +28,14 @@ describe("Reporter.Calculator", () => {
 
       context("and is a weekend", () => {
         it("returns the timesheet", () => {
-          const date: string = "2018-08-11";
+          const date = "2018-08-11";
           const employees: Employee[] = [
             {
               date,
               employee: false,
               hours: 5,
-              name: "Jane Austen"
-            }
+              name: "Jane Austen",
+            },
           ];
           const result: Timesheet = getTimesheet(date, employees);
           expect(result).to.have.property("date", date);
@@ -54,13 +54,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-06",
               hours: 9,
-              isWeekend: false
+              isWeekend: false,
             },
             {
               date: "2018-08-09",
               hours: 10.5,
-              isWeekend: false
-            }
+              isWeekend: false,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", 3.5);
@@ -74,13 +74,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-06",
               hours: 8,
-              isWeekend: false
+              isWeekend: false,
             },
             {
               date: "2018-08-08",
               hours: 8,
-              isWeekend: false
-            }
+              isWeekend: false,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", 0);
@@ -94,13 +94,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-06",
               hours: 6,
-              isWeekend: false
+              isWeekend: false,
             },
             {
               date: "2018-08-07",
               hours: 5.5,
-              isWeekend: false
-            }
+              isWeekend: false,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", -4.5);
@@ -116,13 +116,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-11",
               hours: 9,
-              isWeekend: true
+              isWeekend: true,
             },
             {
               date: "2018-08-12",
               hours: 9,
-              isWeekend: true
-            }
+              isWeekend: true,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", 0);
@@ -136,13 +136,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-11",
               hours: 0,
-              isWeekend: true
+              isWeekend: true,
             },
             {
               date: "2018-08-12",
               hours: 0,
-              isWeekend: true
-            }
+              isWeekend: true,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", 0);
@@ -159,13 +159,13 @@ describe("Reporter.Calculator", () => {
               {
                 date: "2018-08-11",
                 hours: 9,
-                isWeekend: false
+                isWeekend: false,
               },
               {
                 date: "2018-08-09",
                 hours: 10.5,
-                isWeekend: true
-              }
+                isWeekend: true,
+              },
             ];
             const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
             expect(result).to.have.property("weekdays", 1);
@@ -180,13 +180,13 @@ describe("Reporter.Calculator", () => {
               {
                 date: "2018-08-11",
                 hours: 9,
-                isWeekend: false
+                isWeekend: false,
               },
               {
                 date: "2018-08-09",
                 hours: 10.5,
-                isWeekend: true
-              }
+                isWeekend: true,
+              },
             ];
             const result: Report = getOvertime(timesheet, regularDayHours);
             expect(result).to.have.property("weekdays", 5);
@@ -201,13 +201,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-06",
               hours: 8,
-              isWeekend: false
+              isWeekend: false,
             },
             {
               date: "2018-08-11",
               hours: 0,
-              isWeekend: true
-            }
+              isWeekend: true,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", 0);
@@ -221,13 +221,13 @@ describe("Reporter.Calculator", () => {
             {
               date: "2018-08-06",
               hours: 6,
-              isWeekend: false
+              isWeekend: false,
             },
             {
               date: "2018-08-11",
               hours: 0,
-              isWeekend: true
-            }
+              isWeekend: true,
+            },
           ];
           const result: Report = getOvertime(timesheet, REGULAR_DAY_HOURS);
           expect(result).to.have.property("weekdays", -2);

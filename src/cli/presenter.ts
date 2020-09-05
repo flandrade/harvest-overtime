@@ -29,7 +29,7 @@ export function toInfo(args: Options): string {
 
 export function toTable(reportEmployee: ReportEmployee[]): string {
   const table = new Table({
-    head: ["Employee", "Weekdays", "Weekends"]
+    head: ["Employee", "Weekdays", "Weekends"],
   });
   const body = reportEmployee.map(({ report, employee }) => {
     return [employee, setHour(report.weekdays), setHour(report.weekends)];
