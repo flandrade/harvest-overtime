@@ -10,24 +10,20 @@ interface ReportRawCsv {
   readonly Hours: string;
 }
 
-export default function parse(
-  input: string
-): Employee[] {
+export default function parse(input: string): Employee[] {
   const csv: ReportRawCsv[] = parser(input, {
     columns: true,
-    trim: true
+    trim: true,
   });
-  return csv.map(l => decorateReport(l));
+  return csv.map((l) => decorateReport(l));
 }
 
-function decorateReport(
-  report: ReportRawCsv
-): Employee {
+function decorateReport(report: ReportRawCsv): Employee {
   const fullName = `${report["First Name"]} ${report["Last Name"]}`;
   return {
     date: report.Date,
     employee: report["Employee?"] === "Yes",
     hours: Number(report.Hours) || 0,
-    name: fullName.trim()
+    name: fullName.trim(),
   };
 }

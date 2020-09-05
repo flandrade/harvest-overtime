@@ -8,7 +8,7 @@ import reporter, {
   CUR_VERSION,
   DEF_INPUT,
   DEF_OUTPUT,
-  DEF_REGULAR_DAY_HOURS
+  DEF_REGULAR_DAY_HOURS,
 } from "./reporter";
 
 program
@@ -38,7 +38,7 @@ const args: Options = decorateArgs(
 );
 
 reporter(args.inputPath, args.outputPath, args.regularDayHours)
-  .then(report => {
+  .then((report) => {
     console.log(toInfo(args));
     if (program.print) {
       console.log(toTable(report));

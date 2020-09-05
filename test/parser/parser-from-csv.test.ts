@@ -7,7 +7,8 @@ describe("Parser.ParserFromCsv", () => {
   context("#date", () => {
     context("when field is valid", () => {
       it("parses the value", () => {
-        const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
+        const csv =
+          "Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8";
         const parsed: Employee = parse(csv)[0];
         expect(parsed).to.have.property("date", "2018-08-06");
       });
@@ -16,7 +17,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field is not valid", () => {
       context("when field is incorrect", () => {
         it("parses the value", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,Persuasion,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,Persuasion,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("date", "Persuasion");
         });
@@ -24,7 +26,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("when field is empty", () => {
         it("parses to empty", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("date").be.empty;
         });
@@ -36,7 +39,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field is valid", () => {
       context("and field is 'Yes'", () => {
         it("parses to true", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("employee").be.true;
         });
@@ -44,7 +48,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("and field is 'No'", () => {
         it("parses to false", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("employee").be.false;
         });
@@ -54,7 +59,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field is not valid", () => {
       context("and field is different than 'Yes'", () => {
         it("parses to false", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nMmm,Jane,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("employee").be.false;
         });
@@ -62,7 +68,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("and field is empty", () => {
         it("parses to false", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\n,Jane,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\n,Jane,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("employee").be.false;
         });
@@ -74,7 +81,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field is valid", () => {
       context("and field is a number", () => {
         it("parses to a number", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("hours", 8);
         });
@@ -84,7 +92,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field is not valid", () => {
       context("and field is not a number", () => {
         it("parses to zero", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,Mmm`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,Mmm";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("hours", 0);
         });
@@ -92,7 +101,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("and field is empty", () => {
         it("parses to zero", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nNo,Jane,Austen,2018-08-06,";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("hours", 0);
         });
@@ -103,7 +113,8 @@ describe("Parser.ParserFromCsv", () => {
   describe("#name", () => {
     context("when fields are valid", () => {
       it("parses the value", () => {
-        const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8`;
+        const csv =
+          "Employee?,First Name,Last Name,Date,Hours\nYes,Jane,Austen,2018-08-06,8";
         const parsed: Employee = parse(csv)[0];
         expect(parsed).to.have.property("name", "Jane Austen");
       });
@@ -112,7 +123,8 @@ describe("Parser.ParserFromCsv", () => {
     context("when field are not valid", () => {
       context("when field is incorrect", () => {
         it("parses the value", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nMmm,Persuasion,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nMmm,Persuasion,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("name", "Persuasion Austen");
         });
@@ -120,7 +132,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("when some fields are empty", () => {
         it("parses to empty", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,,Austen,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nYes,,Austen,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("name", "Austen");
         });
@@ -128,7 +141,8 @@ describe("Parser.ParserFromCsv", () => {
 
       context("when fields are empty", () => {
         it("parses to empty", () => {
-          const csv = `Employee?,First Name,Last Name,Date,Hours\nYes,,,2018-08-06,8`;
+          const csv =
+            "Employee?,First Name,Last Name,Date,Hours\nYes,,,2018-08-06,8";
           const parsed: Employee = parse(csv)[0];
           expect(parsed).to.have.property("name").be.empty;
         });

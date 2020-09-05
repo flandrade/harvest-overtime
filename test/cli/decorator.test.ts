@@ -6,7 +6,7 @@ describe("Cli.Decorator", () => {
   describe("#inputPath", () => {
     context("and input is not defined", () => {
       it("returns the default", () => {
-        const defaultInput: string = "test.csv";
+        const defaultInput = "test.csv";
         const result: Options = decorateArgs(
           { default: defaultInput, option: null },
           { default: defaultInput, option: null },
@@ -18,8 +18,8 @@ describe("Cli.Decorator", () => {
 
     context("and input is defined", () => {
       it("returns the input", () => {
-        const defaultInput: string = "test.csv";
-        const input: string = "test2.csv";
+        const defaultInput = "test.csv";
+        const input = "test2.csv";
         const result: Options = decorateArgs(
           { default: defaultInput, option: input },
           { default: defaultInput, option: null },
@@ -34,7 +34,7 @@ describe("Cli.Decorator", () => {
   describe("#outputPath", () => {
     context("and output is not defined", () => {
       it("returns the default", () => {
-        const defaultOutput: string = "test.csv";
+        const defaultOutput = "test.csv";
         const result: Options = decorateArgs(
           { default: defaultOutput, option: null },
           { default: defaultOutput, option: null },
@@ -46,8 +46,8 @@ describe("Cli.Decorator", () => {
 
     context("and output is defined", () => {
       it("returns the output", () => {
-        const defaultOutput: string = "test.csv";
-        const output: string = "test2.csv";
+        const defaultOutput = "test.csv";
+        const output = "test2.csv";
         const result: Options = decorateArgs(
           { default: defaultOutput, option: null },
           { default: defaultOutput, option: output },
@@ -62,7 +62,7 @@ describe("Cli.Decorator", () => {
   describe("#regularDayHours", () => {
     context("and the number of hours is not defined", () => {
       it("returns the default", () => {
-        const defaultRDayHours: string = "8";
+        const defaultRDayHours = "8";
         const result: Options = decorateArgs(
           { default: defaultRDayHours, option: null },
           { default: defaultRDayHours, option: null },
@@ -76,8 +76,8 @@ describe("Cli.Decorator", () => {
       context("and is a correct value", () => {
         context("and is other than 0", () => {
           it("returns the value", () => {
-            const defaultRDayHours: string = "8";
-            const hours: string = "7";
+            const defaultRDayHours = "8";
+            const hours = "7";
             const result: Options = decorateArgs(
               { default: defaultRDayHours, option: null },
               { default: defaultRDayHours, option: null },
@@ -92,8 +92,8 @@ describe("Cli.Decorator", () => {
 
         context("and is 0", () => {
           it("returns the value", () => {
-            const defaultRDayHours: string = "8";
-            const hours: string = "0";
+            const defaultRDayHours = "8";
+            const hours = "0";
             const result: Options = decorateArgs(
               { default: defaultRDayHours, option: null },
               { default: defaultRDayHours, option: null },
@@ -109,8 +109,8 @@ describe("Cli.Decorator", () => {
 
       context("and is an incorrect value", () => {
         it("returns the default", () => {
-          const defaultRDayHours: string = "8";
-          const hours: string = "er8";
+          const defaultRDayHours = "8";
+          const hours = "er8";
           const result: Options = decorateArgs(
             { default: defaultRDayHours, option: null },
             { default: defaultRDayHours, option: null },

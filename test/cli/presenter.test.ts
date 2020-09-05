@@ -11,11 +11,11 @@ describe("Cli.Presenter", () => {
         const args: Options = {
           inputPath: "path/to/input",
           outputPath: "path/to/output",
-          regularDayHours: 8
+          regularDayHours: 8,
         };
         const error: Error = {
           name: "Error",
-          message: "Error message"
+          message: "Error message",
         };
         const parsed: string = toError(args, error);
         expect(parsed).to.have.string("It was not possible to process");
@@ -31,7 +31,7 @@ describe("Cli.Presenter", () => {
         const args: Options = {
           inputPath: "path/to/input",
           outputPath: "path/to/output",
-          regularDayHours: 8
+          regularDayHours: 8,
         };
         const parsed: string = toInfo(args);
         expect(parsed).to.have.string("harvest-overtime");
@@ -52,21 +52,21 @@ describe("Cli.Presenter", () => {
             employee: "Jane",
             report: {
               weekdays: 5,
-              weekends: 0
+              weekends: 0,
             },
             timesheet: [
               {
                 date: "2018-08-06",
                 hours: 10,
-                isWeekend: false
+                isWeekend: false,
               },
               {
                 date: "2018-08-07",
                 hours: 11,
-                isWeekend: false
-              }
-            ]
-          }
+                isWeekend: false,
+              },
+            ],
+          },
         ];
         const parsed: string = toTable(report);
         expect(parsed).to.have.string("Jane");
@@ -80,40 +80,40 @@ describe("Cli.Presenter", () => {
             employee: "Jane",
             report: {
               weekdays: 5,
-              weekends: 0
+              weekends: 0,
             },
             timesheet: [
               {
                 date: "2018-08-06",
                 hours: 10,
-                isWeekend: false
+                isWeekend: false,
               },
               {
                 date: "2018-08-07",
                 hours: 11,
-                isWeekend: false
-              }
-            ]
+                isWeekend: false,
+              },
+            ],
           },
           {
             employee: "Emily",
             report: {
               weekdays: 1,
-              weekends: 1
+              weekends: 1,
             },
             timesheet: [
               {
                 date: "2018-08-06",
                 hours: 9,
-                isWeekend: false
+                isWeekend: false,
               },
               {
                 date: "2018-08-11",
                 hours: 1,
-                isWeekend: false
-              }
-            ]
-          }
+                isWeekend: false,
+              },
+            ],
+          },
         ];
         const parsed: string = toTable(report);
         expect(parsed).to.have.string("Jane");
@@ -129,16 +129,16 @@ describe("Cli.Presenter", () => {
               employee: "Jane",
               report: {
                 weekdays: 2,
-                weekends: 0
+                weekends: 0,
               },
               timesheet: [
                 {
                   date: "2018-08-06",
                   hours: 10,
-                  isWeekend: false
-                }
-              ]
-            }
+                  isWeekend: false,
+                },
+              ],
+            },
           ];
           const parsed: string = toTable(report);
           expect(parsed).to.have.string("2");
@@ -153,16 +153,16 @@ describe("Cli.Presenter", () => {
               employee: "Jane",
               report: {
                 weekdays: 0,
-                weekends: 0
+                weekends: 0,
               },
               timesheet: [
                 {
                   date: "2018-08-06",
                   hours: 10,
-                  isWeekend: false
-                }
-              ]
-            }
+                  isWeekend: false,
+                },
+              ],
+            },
           ];
           const parsed: string = toTable(report);
           expect(parsed).to.have.string("0");
@@ -177,16 +177,16 @@ describe("Cli.Presenter", () => {
               employee: "Jane",
               report: {
                 weekdays: 1.25555555555,
-                weekends: 0
+                weekends: 0,
               },
               timesheet: [
                 {
                   date: "2018-08-06",
                   hours: 10,
-                  isWeekend: false
-                }
-              ]
-            }
+                  isWeekend: false,
+                },
+              ],
+            },
           ];
           const parsed: string = toTable(report);
           expect(parsed).to.have.string("1.2556");
