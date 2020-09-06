@@ -6,7 +6,7 @@ import parseFromReport from "./parser/parser-from-csv";
 import parseToReport from "./parser/parser-to-csv";
 import report from "./report/scraper";
 
-export const CUR_VERSION = "2.2.1";
+export const CUR_VERSION = "2.2.2";
 export const DEF_INPUT = "harvest.csv";
 export const DEF_OUTPUT = "report.csv";
 export const DEF_REGULAR_DAY_HOURS = "8";
