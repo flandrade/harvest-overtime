@@ -50,7 +50,7 @@ Please make sure your CSV is using these headers. See an [example](https://raw.g
 
 ## 🚀 How to Install
 
-In order for you and your team to use this tool, you'll need to [install Node.js](https://nodejs.org/en/download/).
+In order for you and your team to use this tool, you'll need to [install Node.js](https://nodejs.org/en/download/). This tool requires Node.js v10+.
 
 ```bash
 # Global so it can be called from anywhere
