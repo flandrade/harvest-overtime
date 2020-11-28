@@ -34,6 +34,7 @@ Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 - Includes both weekdays and weekends. See an [example](#-examples).
 - It doesn't support national holidays.
 - Specific headers are required. See the next section.
+- Requires Node.js v10+.
 
 ## 📌 CSV Requirements
 

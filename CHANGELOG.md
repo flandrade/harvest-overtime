@@ -1,8 +1,7 @@
 3.0.0
 
-- Breaking Change: harvest-overtime requires Node.js v10+.
+- Breaking Change: Upgrade chalk to v4.1.0. Requires Node.js v10+.
 - Chore: Remove external chalk types.
-- Chore: Upgrade chalk to v4.1.0.
 - Chore: Upgrade Node to 14.15.1.
 - Chore: Upgrade major versions - TypeScript, ts-node, mocha, ramda, date-fns.
 
