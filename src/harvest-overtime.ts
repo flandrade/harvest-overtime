@@ -11,6 +11,8 @@ import reporter, {
   DEF_REGULAR_DAY_HOURS,
 } from "./reporter";
 
+const options = program.opts();
+
 program
   .version(CUR_VERSION)
   .option(
@@ -32,15 +34,15 @@ program
   .parse(process.argv);
 
 const args: Options = decorateArgs(
-  { default: DEF_INPUT, option: program.input },
-  { default: DEF_OUTPUT, option: program.output },
-  { default: DEF_REGULAR_DAY_HOURS, option: program.dayhours }
+  { default: DEF_INPUT, option: options.input },
+  { default: DEF_OUTPUT, option: options.output },
+  { default: DEF_REGULAR_DAY_HOURS, option: options.dayhours }
 );
 
 reporter(args.inputPath, args.outputPath, args.regularDayHours)
   .then((report) => {
     console.log(toInfo(args));
-    if (program.print) {
+    if (options.print) {
       console.log(toTable(report));
     }
   })
