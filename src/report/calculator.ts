@@ -1,6 +1,6 @@
 import * as R from "ramda";
 
-import { isWeekend } from "date-fns";
+import { isWeekend, parseISO } from "date-fns";
 import { Employee, Report, Timesheet } from "../models";
 
 export function getTimesheet(date: string, employees: Employee[]): Timesheet {
@@ -9,7 +9,7 @@ export function getTimesheet(date: string, employees: Employee[]): Timesheet {
   return {
     date,
     hours: R.sum(R.map((n) => n.hours, reportByDay)),
-    isWeekend: isWeekend(date),
+    isWeekend: isWeekend(parseISO(date)),
   };
 }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as program from "commander";
+import { program } from "commander";
 
 import { decorateArgs, Options } from "./cli/decorator";
 import { toError, toInfo, toTable } from "./cli/presenter";
@@ -10,6 +10,15 @@ import reporter, {
   DEF_OUTPUT,
   DEF_REGULAR_DAY_HOURS,
 } from "./reporter";
+
+interface CLIOptions {
+  input: string;
+  output: string;
+  dayhours: string;
+  print: string;
+}
+
+const options = program.opts<CLIOptions>();
 
 program
   .version(CUR_VERSION)
@@ -32,15 +41,15 @@ program
   .parse(process.argv);
 
 const args: Options = decorateArgs(
-  { default: DEF_INPUT, option: program.input },
-  { default: DEF_OUTPUT, option: program.output },
-  { default: DEF_REGULAR_DAY_HOURS, option: program.dayhours }
+  { default: DEF_INPUT, option: options.input },
+  { default: DEF_OUTPUT, option: options.output },
+  { default: DEF_REGULAR_DAY_HOURS, option: options.dayhours }
 );
 
 reporter(args.inputPath, args.outputPath, args.regularDayHours)
   .then((report) => {
     console.log(toInfo(args));
-    if (program.print) {
+    if (options.print) {
       console.log(toTable(report));
     }
   })

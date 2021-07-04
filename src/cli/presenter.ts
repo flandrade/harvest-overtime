@@ -5,11 +5,11 @@ import { Options } from "./decorator";
 
 const Table = require("cli-table3");
 
-const bold: chalk.Chalk = chalk.default.bold;
-const errorColor: chalk.Chalk = chalk.default.bold.red;
-const infoColor: chalk.Chalk = chalk.default.bold.blue;
-const reset: chalk.Chalk = chalk.default.reset;
-const titleColor: chalk.Chalk = chalk.default.bold.bgRedBright;
+const bold: chalk.Chalk = chalk.bold;
+const errorColor: chalk.Chalk = chalk.bold.red;
+const infoColor: chalk.Chalk = chalk.bold.blue;
+const reset: chalk.Chalk = chalk.reset;
+const titleColor: chalk.Chalk = chalk.bold.bgRedBright;
 
 const TITLE = `${titleColor("harvest-overtime")} ⏰`;
 
