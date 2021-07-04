@@ -34,7 +34,7 @@ Built with TypeScript and Node.js. Star me on GitHub — thanks! ⭐
 - Includes both weekdays and weekends. See an [example](#-examples).
 - It doesn't support national holidays.
 - Specific headers are required. See the next section.
-- Requires Node.js v10+.
+- Requires Node.js v12+.
 
 ## 📌 CSV Requirements
 
@@ -51,7 +51,7 @@ Please make sure your CSV is using these headers. See an [example](https://raw.g
 
 ## 🚀 How to Install
 
-In order for you and your team to use this tool, you'll need to [install Node.js](https://nodejs.org/en/download/). This tool requires Node.js v10+.
+In order for you and your team to use this tool, you'll need to [install Node.js](https://nodejs.org/en/download/). This tool requires Node.js v12+.
 
 ```bash
 # Global so it can be called from anywhere

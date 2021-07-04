@@ -1,6 +1,6 @@
 3.0.0
 
-- Breaking Change: Upgrade chalk to v4.1.0. Requires Node.js v10+.
+- Breaking Change: Upgrade chalk to v4.1.0 and commander to v8.0.0. Requires Node.js v12+.
 - Chore: Remove external chalk types.
 - Chore: Upgrade Node to 14.16.1.
 - Chore: Upgrade major versions - TypeScript, csv-generate, ramda, date-fns, commander, json2csv.
