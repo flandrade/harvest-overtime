@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as program from "commander";
+import { program } from "commander";
 
 import { decorateArgs, Options } from "./cli/decorator";
 import { toError, toInfo, toTable } from "./cli/presenter";
@@ -11,7 +11,14 @@ import reporter, {
   DEF_REGULAR_DAY_HOURS,
 } from "./reporter";
 
-const options = program.opts();
+interface CLIOptions {
+  input: string;
+  output: string;
+  dayhours: string;
+  print: string;
+}
+
+const options = program.opts<CLIOptions>();
 
 program
   .version(CUR_VERSION)
