@@ -1,6 +1,6 @@
 import { Employee } from "../models";
 
-const parser = require("csv-parse/lib/sync");
+import { parse as parser } from "csv-parse/sync";
 
 interface ReportRawCsv {
   readonly "Employee?": string;
