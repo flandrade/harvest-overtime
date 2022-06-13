@@ -31,7 +31,6 @@
   "author": "Fernanda Andrade",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.7.2",
     "chalk": "^4.1.2",
     "cli-table3": "^0.6.2",
     "commander": "^8.3.0",
