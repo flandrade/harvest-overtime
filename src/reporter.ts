@@ -1,5 +1,3 @@
-import * as Promise from "bluebird";
-
 import { read, write } from "./io/file-system";
 import { ReportEmployee } from "./models";
 import parseFromReport from "./parser/parser-from-csv";
@@ -19,8 +17,9 @@ export default function reporter(
   return read(input)
     .then(parseFromReport)
     .then(report(regularDayHours))
-    .tap((res) => {
+    .then((res) => {
       const csvInfo = parseToReport(res);
       write(output, csvInfo);
+      return res;
     });
 }

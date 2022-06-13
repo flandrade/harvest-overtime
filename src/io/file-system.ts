@@ -1,27 +1,21 @@
-import * as Promise from "bluebird";
 import * as fs from "fs";
 
-const DEFAULT_ENCODING = "utf8";
+const DEFAULT_ENCODING = { encoding: "utf8" as BufferEncoding };
 
 const readFileAsync: (
   file: string,
-  encoding: string
-) => Promise<string> = Promise.promisify<string, string, string>(fs.readFile);
+  options: { encoding: BufferEncoding }
+) => Promise<string> = fs.promises.readFile;
 
 const writeFileAsync: (
   file: string,
   data: string,
   options: fs.WriteFileOptions
-) => Promise<void> = Promise.promisify<
-  void,
-  string,
-  string,
-  fs.WriteFileOptions
->(fs.writeFile);
+) => Promise<void> = fs.promises.writeFile;
 
 export function read(filePath: string): Promise<string> {
   return readFileAsync(filePath, DEFAULT_ENCODING);
 }
 export function write(filePath: string, data: string): void {
-  writeFileAsync(filePath, data, { encoding: DEFAULT_ENCODING });
+  writeFileAsync(filePath, data, DEFAULT_ENCODING);
 }
