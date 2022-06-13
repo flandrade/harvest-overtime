@@ -28,10 +28,9 @@ function getOvertimeByType(
   isWeekEnd: boolean,
   regularDayHours: number
 ): number {
-  const hourListByDay: number[] = R.pipe<Timesheet[], Timesheet[], number[]>(
-    R.filter<Timesheet>((n) => n.isWeekend === isWeekEnd),
-    R.map<Timesheet, number>((n) => n.hours)
-  )(timesheet);
+  const hourListByDay: number[] = timesheet
+    .filter((n) => n.isWeekend === isWeekEnd)
+    .map((n) => n.hours);
   const totalDays: number = hourListByDay.length;
   const regularHours: number = isWeekEnd ? 0 : totalDays * regularDayHours;
   const totalHours: number = R.sum(hourListByDay);
