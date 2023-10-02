@@ -15,6 +15,11 @@ export default function parseToReport(
   return json2csvParser.parse(report);
 }
 
+/**
+ * This function converts an employee Harvest report into a CSV report.
+ * @param reportEmployee The employee report in JSON format.
+ * @returns The report in CSV format.
+ */
 function toReport(reportEmployee: ReportEmployee): ReportCsv {
   const { report, employee, timesheet } = reportEmployee;
   const hours: ReportCsv[] = R.map((t) => ({ [t.date]: t.hours }), timesheet);
