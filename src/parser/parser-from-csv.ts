@@ -10,6 +10,11 @@ interface ReportRawCsv {
   readonly Hours: string;
 }
 
+/**
+ * This function parses.
+ * @param input Receives a string
+ * @returns Returns an Employee[]
+ */
 export default function parse(input: string): Employee[] {
   const csv: ReportRawCsv[] = parser(input, {
     columns: true,
