@@ -7,6 +7,7 @@ interface ReportCsv {
   [x: string]: string | number;
 }
 
+// This converts to a report
 export default function parseToReport(
   reportEmployee: ReportEmployee[]
 ): string {
